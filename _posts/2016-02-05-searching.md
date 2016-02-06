@@ -10,10 +10,11 @@ require_math: true
 ---
 
 ## 二分查找
-对于已排序的数组，通过二分查找可以在\\(O(log(n))\\)的时间复杂度内判断某个元素是否存在
+对于已排序的数组，通过二分查找可以在\\(O(log(n))\\)的时间复杂度内判断某个元素是否存在，并得到
+元素的下标
 
 ```cpp
-bool binary_search(int arr[], int length, int key) {
+int binary_search(int arr[], int length, int key) {
   int low = 0;
   int high = length - 1;
   int mid;
@@ -24,9 +25,9 @@ bool binary_search(int arr[], int length, int key) {
     } else if (key > arr[mid]) {
       low = mid + 1;
     } else { // key == arr[mid]
-      return true;
+      return mid;
     }
   }
-  return false;
+  return -1;
 }
 ```
