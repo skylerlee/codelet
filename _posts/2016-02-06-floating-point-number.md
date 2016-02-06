@@ -19,3 +19,6 @@ tags:
 4. 移码
 
 现代计算机基本都采用补码来表示有符号数，而浮点数用到了移码，今天就来具体研究一番：
+参考资料：  
+[1] [wikipedia - Signed Number Representations](https://en.wikipedia.org/wiki/Signed_number_representations)  
+[2] [wikipedia - Floating Number](https://en.wikipedia.org/wiki/Floating-point_arithmetic)  
