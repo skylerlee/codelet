@@ -11,7 +11,9 @@ tags:
 
 `char`，`short`，`int`，`long`，`float`，`double`
 
-其中，定点数的二进制表示很好理解，计组书上说过有符号整数的二进制表示法大致有四种：
+#### 定点数的二进制表示
+
+定点数的二进制表示很好理解，计组书上说过有符号整数的二进制表示法大致有四种：
 
 1. 原码
 2. 反码
@@ -64,6 +66,11 @@ print_bits_of_int(num); // 11111111 11111111 11111111 11111000
 
 负数的补码是其正数的按位取反加一
 
+#### 浮点数的二进制表示
+
+浮点数又可以分为单精度浮点数和双精度浮点数两种
+
 参考资料：  
 [1] [wikipedia - Signed Number Representations](https://en.wikipedia.org/wiki/Signed_number_representations)  
 [2] [wikipedia - Floating Number](https://en.wikipedia.org/wiki/Floating-point_arithmetic)  
+[3] [wikipedia - IEEE-754](https://en.wikipedia.org/wiki/IEEE_754)  
