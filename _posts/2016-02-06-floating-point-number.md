@@ -18,7 +18,52 @@ tags:
 3. 补码
 4. 移码
 
-现代计算机基本都采用补码来表示有符号数，而浮点数用到了移码，今天就来具体研究一番：
+现代计算机基本都采用补码来表示有符号数，而浮点数用到了移码，今天就来具体研究一下
+
+下面的代码用于打印有符号整数的bit位
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+void pretty_print(char* str) {
+  char buffer[256];
+  char* p = buffer;
+  int length = strlen(str);
+  for (int i = 0; i < length; i++) {
+    if (i > 0 && i % 8 == 0) {
+      sprintf(p++, " ");
+    }
+    sprintf(p++, "%c", str[i]);
+  }
+  printf("%s\n", buffer);
+}
+
+void print_bits_of_int(int value) {
+  const int size = sizeof(value) * 8;
+  char buffer[size + 1];
+  buffer[size] = '\0';
+  for (int i = size - 1; i >= 0; i--) {
+    int bit = value & (unsigned int) 1;
+    buffer[i] = bit ? '1' : '0';
+    value >>= 1;
+  }
+  pretty_print(buffer);
+}
+```
+
+看看测试结果
+
+```c
+int num;
+num = 8;
+print_bits_of_int(num); // 00000000 00000000 00000000 00001000
+num = -8;
+print_bits_of_int(num); // 11111111 11111111 11111111 11111000
+```
+
+负数的补码是其正数的按位取反加一
+
 参考资料：  
 [1] [wikipedia - Signed Number Representations](https://en.wikipedia.org/wiki/Signed_number_representations)  
 [2] [wikipedia - Floating Number](https://en.wikipedia.org/wiki/Floating-point_arithmetic)  
