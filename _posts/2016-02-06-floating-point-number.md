@@ -148,7 +148,7 @@ print_as_float(0xffffffff); // -nan
 
 1. 指数域全0，尾数域全0，则为\\(\pm0\\)
 2. 指数域全1，尾数域全0，则为\\(\pm\infty\\)
-3. 指数域全1，尾数域不全0，则为\\(\pmnan\\)
+3. 指数域全1，尾数域不全0，则为\\(\pm nan\\)
 
 参考资料：  
 [1] [wikipedia - Signed Number Representations](https://en.wikipedia.org/wiki/Signed_number_representations)  
