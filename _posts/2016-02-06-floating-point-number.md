@@ -150,6 +150,26 @@ print_as_float(0xffffffff); // -nan
 2. 指数域全1，尾数域全0，则为\\(\pm\infty\\)
 3. 指数域全1，尾数域不全0，则为\\(\pm nan\\)
 
+```c
+// ------------ |s|  e   ||          f          |
+print_as_float(0b00000000000000000000000000000000); // 0.000000
+print_as_float(0b10000000000000000000000000000000); // -0.000000
+print_as_float(0b01111111100000000000000000000000); // inf
+print_as_float(0b11111111100000000000000000000000); // -inf
+print_as_float(0b01111111100000100000000000000000); // nan
+print_as_float(0b11111111100000001100000000000000); // -nan
+```
+
+#### 最值
+
+之前的问题还没解决呢，不过了解规则后就好办了，只要保证指数域不全为1，即可求得最大值与最小值
+
+```c
+// ------------ |s|  e   ||          f          |
+print_as_float(0b01111111011111111111111111111111); // 3.40e+38
+print_as_float(0b11111111011111111111111111111111); // -3.40e+38
+```
+
 参考资料：  
 [1] [wikipedia - Signed Number Representations](https://en.wikipedia.org/wiki/Signed_number_representations)  
 [2] [wikipedia - Floating Number](https://en.wikipedia.org/wiki/Floating-point_arithmetic)  
