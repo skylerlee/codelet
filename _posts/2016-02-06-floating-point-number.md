@@ -115,6 +115,23 @@ print_bits_of_float(3.0);
 // (1+0.5)*2^1
 ```
 
+那现在我们就反过来验证一下：
+
+对于小数\\(18.75\\)，可以表示为：\\(1.171875*2^4\\) \\
+其中\\(0.171875\\)又可以表示为：\\(1/8+1/32+1/64\\) \\
+因此
+sign: 0
+exp : 4+127=131 : 10000011
+frac: \\(1/8+1/32+1/64\\) : 00101100 00000000 0000000
+综合起来：01000001 10010110 00000000 00000000
+
+```c
+print_bits_of_float(18.75);
+// 01000001 10010110 00000000 00000000
+```
+
+结果和我们的推断是一致的
+
 参考资料：  
 [1] [wikipedia - Signed Number Representations](https://en.wikipedia.org/wiki/Signed_number_representations)  
 [2] [wikipedia - Floating Number](https://en.wikipedia.org/wiki/Floating-point_arithmetic)  
