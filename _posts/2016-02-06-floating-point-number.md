@@ -132,6 +132,24 @@ print_bits_of_float(18.75);
 
 结果和我们的推断是一致的
 
+那么单精度浮点数所能表示的最大最小值是什么呢？可以先猜测：max=0x7fffffff，min=0xffffffff，
+下面就验证一下
+
+```c
+print_as_float(0x7fffffff); // nan
+print_as_float(0xffffffff); // -nan
+```
+
+和我们的预期不一致，说明这是一个特殊值
+
+#### 特殊值
+
+根据规范，浮点数有三种特殊值
+
+1. 指数域全0，尾数域全0，则为\\(\pm0\\)
+2. 指数域全1，尾数域全0，则为\\(\pm\infty\\)
+3. 指数域全1，尾数域不全0，则为\\(\pmnan\\)
+
 参考资料：  
 [1] [wikipedia - Signed Number Representations](https://en.wikipedia.org/wiki/Signed_number_representations)  
 [2] [wikipedia - Floating Number](https://en.wikipedia.org/wiki/Floating-point_arithmetic)  
