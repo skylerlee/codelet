@@ -58,3 +58,6 @@ Node* BST_search(Node* root, int key) {
   return nullptr;
 }
 ```
+
+参考资料：  
+[1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)
