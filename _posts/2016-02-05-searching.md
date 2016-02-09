@@ -60,7 +60,8 @@ Node* BST_search(Node* root, int key) {
 ```
 
 此外还可以在二叉搜索树上查找最值，查找某个元素的前驱和后继等，这里就不展开了，具体请参考算法导论
-第12章（minimum maximum successor predecessor）
+第12章（minimum maximum successor predecessor），这些算法的平均复杂度为\\(O(h)\\)，即
+正比于二叉树的高度
 
 参考资料：  
 [1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)
