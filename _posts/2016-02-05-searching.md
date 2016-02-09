@@ -64,4 +64,5 @@ Node* BST_search(Node* root, int key) {
 正比于二叉树的高度
 
 参考资料：  
-[1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)
+[1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)  
+[2] [R. Sedgewick and K. Wayne Algorithms-4th - BinarySearchTree](https://algs4.cs.princeton.edu/32bst/)  
