@@ -40,19 +40,33 @@ int binary_search(int arr[], int length, int key) {
 
 ```cpp
 struct Node {
+  Node(int value)
+  : value(value),
+    left(nullptr),
+    right(nullptr) {}
+
   int value;
   Node* left;
   Node* right;
 };
 
-Node* BST_search(Node* root, int key) {
-  while (root != nullptr) {
-    if (key < root->value) {
-      root = root->left;
-    } else if (key > root->value) {
-      root = root->right;
-    } else { // key == root->value
-      return root;
+class BSTree {
+public:
+  BSTree()
+  : root(nullptr) {}
+private:
+  Node* root;
+};
+
+Node* BSTree::search(int key) {
+  Node* node = this->root;
+  while (node != nullptr) {
+    if (key < node->value) {
+      node = node->left;
+    } else if (key > node->value) {
+      node = node->right;
+    } else { // key == node->value
+      return node;
     }
   }
   return nullptr;
