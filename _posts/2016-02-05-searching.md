@@ -31,3 +31,30 @@ int binary_search(int arr[], int length, int key) {
   return -1;
 }
 ```
+
+排序数组的查找效率很高，但是插入和删除操作的复杂度都是\\(O(n)\\)，因此不适合大量的增删数据
+
+## 二叉搜索树
+二叉搜索树满足一个性质：对于任意一个结点，它的关键字大于或等于左子树上所有结点的关键字，且小于或
+等于右子树上所有结点的关键字
+
+```cpp
+struct Node {
+  int value;
+  Node* left;
+  Node* right;
+};
+
+Node* BST_search(Node* root, int key) {
+  while (root != nullptr) {
+    if (key < root->value) {
+      root = root->left;
+    } else if (key > root->value) {
+      root = root->right;
+    } else { // key == root->value
+      return root;
+    }
+  }
+  return nullptr;
+}
+```
