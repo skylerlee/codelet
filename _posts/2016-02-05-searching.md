@@ -152,6 +152,17 @@ Node* BSTree::remove(int key) {
   return removed;
 }
 ```
+
+以上`insert`和`remove`两个方法的复杂度也是\\(O(h)\\)，但是当输入序列有序时，树高会增长为n，
+二叉树退化为链表，导致所有操作的复杂度都退化为\\(O(n)\\)，因此我们应该使二叉树的高度尽量接近于
+\\(O(log(n))\\)，以此获得更好的性能
+
+注意：以上的实现都允许有重复关键字存在，相等关键字会出现在右子树中，因此不是一般set接口的实现
+
+## AVL树
+
+## 红黑树
+
 参考资料：  
 [1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - BinarySearchTree](https://algs4.cs.princeton.edu/32bst/)  
