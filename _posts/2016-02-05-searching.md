@@ -77,6 +77,81 @@ Node* BSTree::search(int key) {
 第12章（minimum maximum successor predecessor），这些算法的平均复杂度为\\(O(h)\\)，即
 正比于二叉树的高度
 
+下面再看看结点的插入和删除
+
+```cpp
+void BSTree::insert(int key) {
+  Node* newNode = new Node(key);
+  if (this->root == nullptr) { // empty tree
+    this->root = newNode;
+    return;
+  }
+  Node* node = this->root;
+  Node* parent;
+  while (node != nullptr) {
+    parent = node;
+    if (key < node->value) {
+      node = node->left;
+    } else { // key >= node->value
+      node = node->right;
+    }
+  }
+  if (key < parent->value) {
+    parent->left = newNode;
+  } else { // key >= parent->value
+    parent->right = newNode;
+  }
+}
+
+Node* BSTree::removeMin(Node* node, Node*& removal) {
+  if (node == nullptr) { // empty subtree
+    return nullptr;
+  }
+  if (node->left != nullptr) {
+    node->left = removeMin(node->left, removal);
+    return node;
+  } else { // node->left == nullptr
+    removal = node;
+    return node->right;
+  }
+}
+
+Node* BSTree::remove(Node* node, int key, Node*& removal) {
+  if (node == nullptr) { // empty tree
+    return nullptr;
+  }
+  if (key < node->value) {
+    node->left = remove(node->left, key, removal);
+    return node;
+  } else if (key > node->value) {
+    node->right = remove(node->right, key, removal);
+    return node;
+  } else { // key == node->value
+    // node to be removed
+    removal = node;
+    if (node->left == nullptr && node->right == nullptr) { // d == 0
+      return nullptr;
+    } else if (node->left == nullptr) { // d == 1
+      return node->right;
+    } else if (node->right == nullptr) { // d == 1
+      return node->left;
+    } else { // d == 2
+      // replace by successor
+      Node* min;
+      node->right = removeMin(node->right, min);
+      min->left = node->left;
+      min->right = node->right;
+      return min;
+    }
+  }
+}
+
+Node* BSTree::remove(int key) {
+  Node* removed = nullptr;
+  this->root = remove(this->root, key, removed);
+  return removed;
+}
+```
 参考资料：  
 [1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - BinarySearchTree](https://algs4.cs.princeton.edu/32bst/)  
