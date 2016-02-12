@@ -149,6 +149,10 @@ Node* BSTree::remove(Node* node, int key, Node*& removal) {
 Node* BSTree::remove(int key) {
   Node* removed = nullptr;
   this->root = remove(this->root, key, removed);
+  if (removed != nullptr) { // cleanup
+    removed->left = nullptr;
+    removed->right = nullptr;
+  }
   return removed;
 }
 ```
