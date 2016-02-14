@@ -170,7 +170,63 @@ AVL树是经过改进的二叉搜索树，它除了满足二叉搜索树的性�
 至于插入删除操作引起的不平衡，AVL树可以通过旋转达到再平衡
 
 ```cpp
+struct Node {
+  Node(int value)
+  : value(value),
+    height(0),
+    left(nullptr),
+    right(nullptr) {}
 
+  int value;
+  int height;
+  Node* left;
+  Node* right;
+};
+
+inline int height(Node* node) {
+  return node == nullptr ? -1 : node->height;
+}
+
+inline int balanceFactor(Node* node) {
+  return height(node->right) - height(node->left);
+}
+
+Node* AVLTree::rotateLeft(Node* node) {
+  Node* pivot = node->right;
+  node->right = pivot->left;
+  pivot->left = node;
+  // update height
+  node->height = max(height(node->left), height(node->right)) + 1;
+  pivot->height = max(height(pivot->left), height(pivot->right)) + 1;
+  return pivot;
+}
+
+Node* AVLTree::rotateRight(Node* node) {
+  Node* pivot = node->left;
+  node->left = pivot->right;
+  pivot->right = node;
+  // update height
+  node->height = max(height(node->left), height(node->right)) + 1;
+  pivot->height = max(height(pivot->left), height(pivot->right)) + 1;
+  return pivot;
+}
+
+Node* AVLTree::balance(Node* node) {
+  int bf = balanceFactor(node);
+  if (bf < -1) { // left is higher
+    if (balanceFactor(node->left) > 0) { // right is higher
+      node->left = rotateLeft(node->left);
+    }
+    return rotateRight(node);
+  }
+  if (bf > 1) { // right is higher
+    if (balanceFactor(node->right) < 0) { // left is higher
+      node->right = rotateRight(node->right);
+    }
+    return rotateLeft(node);
+  }
+  return node;
+}
 ```
 
 ## 红黑树
