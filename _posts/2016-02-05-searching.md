@@ -229,6 +229,70 @@ Node* AVLTree::balance(Node* node) {
 }
 ```
 
+有了左旋右旋操作，就不难实现自平衡的插入删除了
+
+```cpp
+Node* AVLTree::insert(Node* node, int key) {
+  if (node == nullptr) {
+    return new Node(key);
+  }
+  if (key < node->value) {
+    node->left = insert(node->left, key);
+  } else { // key >= node->value
+    node->right = insert(node->right, key);
+  }
+  // update height upwards
+  node->height = max(height(node->left), height(node->right)) + 1;
+  return balance(node);
+}
+
+void AVLTree::insert(int key) {
+  this->root = insert(this->root, key);
+}
+
+Node* AVLTree::remove(Node* node, int key, Node*& removal) {
+  if (node == nullptr) { // empty tree
+    return nullptr;
+  }
+  if (key < node->value) {
+    node->left = remove(node->left, key, removal);
+  } else if (key > node->value) {
+    node->right = remove(node->right, key, removal);
+  } else { // key == node->value
+    // node to be removed
+    removal = node;
+    if (node->left == nullptr && node->right == nullptr) { // d == 0
+      return nullptr;
+    } else if (node->left == nullptr) { // d == 1
+      return node->right;
+    } else if (node->right == nullptr) { // d == 1
+      return node->left;
+    } else { // d == 2
+      // replace by successor
+      Node* min;
+      node->right = removeMin(node->right, min);
+      min->left = node->left;
+      min->right = node->right;
+      node = min; // as current node
+    }
+  }
+  // update height upwards
+  node->height = max(height(node->left), height(node->right)) + 1;
+  return balance(node);
+}
+
+Node* AVLTree::remove(int key) {
+  Node* removed = nullptr;
+  this->root = remove(this->root, key, removed);
+  if (removed != nullptr) { // cleanup
+    removed->left = nullptr;
+    removed->right = nullptr;
+    removed->height = 0;
+  }
+  return removed;
+}
+```
+
 ## 红黑树
 
 参考资料：  
