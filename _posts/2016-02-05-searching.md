@@ -317,6 +317,7 @@ Node* AVLTree::remove(int key) {
 AVL树始终都可以保持平衡，因此在任何情况下它的查找复杂度都是\\(O(log(n))\\)
 
 ## 红黑树
+红黑树是一种重要的自平衡树，常用于实现集合、字典等数据结构，限于篇幅，只能另外开篇介绍了
 
 参考资料：  
 [1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)  
