@@ -250,6 +250,21 @@ void AVLTree::insert(int key) {
   this->root = insert(this->root, key);
 }
 
+Node* AVLTree::removeMin(Node* node, Node*& removal) {
+  if (node == nullptr) { // empty subtree
+    return nullptr;
+  }
+  if (node->left != nullptr) {
+    node->left = removeMin(node->left, removal);
+  } else { // node->left == nullptr
+    removal = node;
+    return node->right;
+  }
+  // update height upwards
+  node->height = max(height(node->left), height(node->right)) + 1;
+  return balance(node);
+}
+
 Node* AVLTree::remove(Node* node, int key, Node*& removal) {
   if (node == nullptr) { // empty tree
     return nullptr;
