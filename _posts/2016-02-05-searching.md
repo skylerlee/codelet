@@ -323,5 +323,5 @@ AVL树始终都可以保持平衡，因此在任何情况下它的查找复杂�
 
 参考资料：  
 [1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)  
-[2] [R. Sedgewick and K. Wayne Algorithms-4th - BinarySearchTree](https://algs4.cs.princeton.edu/32bst/)  
+[2] [R. Sedgewick and K. Wayne Algorithms-4th - Binary Search Trees](https://algs4.cs.princeton.edu/32bst/)  
 [3] [R. Sedgewick and K. Wayne Algorithms-4th - AVLTreeST](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/AVLTreeST.java.html)  
