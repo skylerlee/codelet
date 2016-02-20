@@ -45,7 +45,7 @@ struct Node {
 ```
 
 ### 搜索
-红黑树也是一种二叉搜索树，因此搜索算法是一致的
+红黑树也是二叉搜索树，符合二分法则，因此搜索算法是一致的
 
 ```cpp
 Node* RBTree::search(int key) {
@@ -60,6 +60,125 @@ Node* RBTree::search(int key) {
     }
   }
   return nullptr;
+}
+```
+
+### 插入
+
+```cpp
+inline bool isRed(Node* node) {
+  return node != nullptr && node->color == RED;
+}
+
+inline bool isBlack(Node* node) {
+  return !isRed(node);
+}
+
+void RBTree::rotateLeft(Node* node) {
+  Node* grandpa = node->parent;
+  Node* pivot = node->right;
+  node->right = pivot->left;
+  if (pivot->left != nullptr) {
+    pivot->left->parent = node;
+  }
+  pivot->left = node;
+  node->parent = pivot;
+  // fix grandpa
+  if (grandpa == nullptr) { // node == root
+    this->root = pivot;
+  } else if (node == grandpa->left) {
+    grandpa->left = pivot;
+  } else { // node == grandpa->right
+    grandpa->right = pivot;
+  }
+  pivot->parent = grandpa;
+}
+
+void RBTree::rotateRight(Node* node) {
+  Node* grandpa = node->parent;
+  Node* pivot = node->left;
+  node->left = pivot->right;
+  if (pivot->right != nullptr) {
+    pivot->right->parent = node;
+  }
+  pivot->right = node;
+  node->parent = pivot;
+  // fix grandpa
+  if (grandpa == nullptr) { // node == root
+    this->root = pivot;
+  } else if (node == grandpa->left) {
+    grandpa->left = pivot;
+  } else { // node == grandpa->right
+    grandpa->right = pivot;
+  }
+  pivot->parent = grandpa;
+}
+
+void RBTree::fixInsertion(Node* node) {
+  Node* parent;
+  while (isRed((parent = node->parent))) {
+    Node* grandpa = parent->parent;
+    Node* uncle;
+    if (parent == grandpa->left) { // left branch
+      uncle = grandpa->right;
+      if (isRed(uncle)) { // case 1
+        uncle->color = BLACK;
+        parent->color = BLACK;
+        grandpa->color = RED;
+        node = grandpa;
+      } else { // black uncle
+        if (node == parent->right) { // case 3
+          rotateLeft(parent);
+          parent = parent->parent;
+        }
+        rotateRight(grandpa); // case 2
+        parent->color = BLACK;
+        grandpa->color = RED;
+      }
+    } else { // right branch
+      uncle = grandpa->left;
+      if (isRed(uncle)) { // case 1
+        uncle->color = BLACK;
+        parent->color = BLACK;
+        grandpa->color = RED;
+        node = grandpa;
+      } else { // black uncle
+        if (node == parent->left) { // case 3
+          rotateRight(parent);
+          parent = parent->parent;
+        }
+        rotateLeft(grandpa); // case 2
+        parent->color = BLACK;
+        grandpa->color = RED;
+      }
+    }
+  } // let pass black parent
+  this->root->color = BLACK;
+}
+
+void RBTree::insert(int key) {
+  if (this->root == nullptr) { // empty tree
+    this->root = new Node(key, nullptr);
+    this->root->color = BLACK;
+    return;
+  }
+  Node* node = this->root;
+  Node* parent;
+  do {
+    parent = node;
+    if (key < node->value) {
+      node = node->left;
+    } else { // key >= node->value
+      node = node->right;
+    }
+  } while(node != nullptr);
+  Node* newNode = new Node(key, parent);
+  if (key < parent->value) {
+    parent->left = newNode;
+  } else { // key >= parent->value
+    parent->right = newNode;
+  }
+  fixInsertion(newNode);
 }
 ```
 参考资料：  
