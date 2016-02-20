@@ -117,7 +117,7 @@ Node* BSTree::removeMin(Node* node, Node*& removal) {
 }
 
 Node* BSTree::remove(Node* node, int key, Node*& removal) {
-  if (node == nullptr) { // empty tree
+  if (node == nullptr) { // empty subtree
     return nullptr;
   }
   if (key < node->value) {
@@ -129,14 +129,14 @@ Node* BSTree::remove(Node* node, int key, Node*& removal) {
   } else { // key == node->value
     // node to be removed
     removal = node;
-    if (node->left == nullptr && node->right == nullptr) { // d == 0
+    if (node->left == nullptr && node->right == nullptr) { // degree 0
       return nullptr;
-    } else if (node->left == nullptr) { // d == 1
+    } else if (node->left == nullptr) { // degree 1
       return node->right;
-    } else if (node->right == nullptr) { // d == 1
+    } else if (node->right == nullptr) { // degree 1
       return node->left;
-    } else { // d == 2
-      // replace by successor
+    } else { // degree 2
+      // find successor
       Node* min;
       node->right = removeMin(node->right, min);
       min->left = node->left;
@@ -271,7 +271,7 @@ Node* AVLTree::removeMin(Node* node, Node*& removal) {
 }
 
 Node* AVLTree::remove(Node* node, int key, Node*& removal) {
-  if (node == nullptr) { // empty tree
+  if (node == nullptr) { // empty subtree
     return nullptr;
   }
   if (key < node->value) {
@@ -281,19 +281,19 @@ Node* AVLTree::remove(Node* node, int key, Node*& removal) {
   } else { // key == node->value
     // node to be removed
     removal = node;
-    if (node->left == nullptr && node->right == nullptr) { // d == 0
+    if (node->left == nullptr && node->right == nullptr) { // degree 0
       return nullptr;
-    } else if (node->left == nullptr) { // d == 1
+    } else if (node->left == nullptr) { // degree 1
       return node->right;
-    } else if (node->right == nullptr) { // d == 1
+    } else if (node->right == nullptr) { // degree 1
       return node->left;
-    } else { // d == 2
-      // replace by successor
+    } else { // degree 2
+      // find successor
       Node* min;
       node->right = removeMin(node->right, min);
       min->left = node->left;
       min->right = node->right;
-      node = min; // as current node
+      node = min; // replace node
     }
   }
   // update height upwards
