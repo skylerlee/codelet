@@ -45,7 +45,7 @@ struct Node {
 ```
 
 ### 搜索
-红黑树也是二叉搜索树，符合二分法则，因此搜索算法是一致的
+红黑树同时具有二叉搜索树的性质，适用二分法，因此搜索算法是一致的
 
 ```cpp
 Node* RBTree::search(int key) {
@@ -64,6 +64,8 @@ Node* RBTree::search(int key) {
 ```
 
 ### 插入
+和AVL树类似，红黑树首先将新元素插入到合适的位置，然后再进行调整，不同的是红黑树以结点的颜色作为
+判别平衡的依据，依次向上调整
 
 ```cpp
 inline bool isRed(Node* node) {
@@ -181,6 +183,9 @@ void RBTree::insert(int key) {
   fixInsertion(newNode);
 }
 ```
+
+因为在作调整时，并不是每层结点都需要变动，因此采用父指针的方式回溯会更简单
+
 参考资料：  
 [1] [wikipedia - 2–3 tree](https://en.wikipedia.org/wiki/2%E2%80%933_tree)  
 [2] [wikipedia - red-black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)  
