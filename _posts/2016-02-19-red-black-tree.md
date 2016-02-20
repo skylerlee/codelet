@@ -29,14 +29,16 @@ enum Color {
 };
 
 struct Node {
-  Node(int value)
+  Node(int value, Node* parent)
   : value(value),
     color(RED),
+    parent(parent),
     left(nullptr),
     right(nullptr) {}
 
   int value;
   Color color;
+  Node* parent;
   Node* left;
   Node* right;
 };
