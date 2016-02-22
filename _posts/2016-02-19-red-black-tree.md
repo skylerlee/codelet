@@ -243,6 +243,36 @@ void RBTree::insert(int key) {
 * 父结点是红色叔结点是黑色时，情况2、情况3等价于3-结点并入新增或变色产生的红色结点，而旋转变换
 以及颜色变换只是为了构造正确的4-结点，并保持黑色结点对应着4-结点的中间元素
 
+### 删除
+
+```cpp
+Node* RBTree::successor(Node* node) {
+  node = node->right;
+  while (node->left != nullptr) {
+    node = node->left;
+  }
+  return node;
+}
+
+void RBTree::removeNode(Node* node) {
+}
+
+Node* RBTree::remove(int key) {
+  Node* node = this->root;
+  while (node != nullptr) {
+    if (key < node->value) {
+      node = node->left;
+    } else if (key > node->value) {
+      node = node->right;
+    } else { // key == node->value
+      removeNode(node);
+      return node;
+    }
+  }
+  return nullptr;
+}
+```
+
 参考资料：  
 [1] [wikipedia - 2–3 tree](https://en.wikipedia.org/wiki/2%E2%80%933_tree)  
 [2] [wikipedia - red-black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)  
