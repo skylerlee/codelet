@@ -129,9 +129,10 @@ void RBTree::rotateRight(Node* node) {
 
 void RBTree::fixInsertion(Node* node) {
   Node* parent;
+  Node* grandpa;
+  Node* uncle;
   while (isRed((parent = node->parent))) {
-    Node* grandpa = parent->parent;
-    Node* uncle;
+    grandpa = parent->parent;
     if (parent == grandpa->left) { // left branch
       uncle = grandpa->right;
       if (isRed(uncle)) { // case 1
