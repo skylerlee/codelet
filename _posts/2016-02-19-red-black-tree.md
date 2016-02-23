@@ -254,7 +254,31 @@ Node* RBTree::successor(Node* node) {
   return node;
 }
 
-void RBTree::removeNode(Node* node) {
+Node* RBTree::removeNode(Node* node) {
+  if (node->left != nullptr && node->right != nullptr) { // degree 2
+    Node* succ = successor(node);
+    swap(node->value, succ->value);
+    node = succ;
+  }
+  Node* replacement;
+  if (node->left == nullptr) { // degree 0 or 1
+    replacement = node->right;
+  } else { // degree 1
+    replacement = node->left;
+  }
+  // replace node
+  Node* parent = node->parent;
+  if (parent == nullptr) { // root
+    this->root = replacement;
+  } else if (node == parent->left) {
+    parent->left = replacement;
+  } else { // node == parent->right
+    parent->right = replacement;
+  }
+  if (replacement != nullptr) {
+    replacement->parent = parent;
+  }
+  return node;
 }
 
 Node* RBTree::remove(int key) {
@@ -265,8 +289,7 @@ Node* RBTree::remove(int key) {
     } else if (key > node->value) {
       node = node->right;
     } else { // key == node->value
-      removeNode(node);
-      return node;
+      return removeNode(node);
     }
   }
   return nullptr;
