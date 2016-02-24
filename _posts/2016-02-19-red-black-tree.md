@@ -383,3 +383,4 @@ Node* RBTree::remove(int key) {
 [1] [wikipedia - 2–3 tree](https://en.wikipedia.org/wiki/2%E2%80%933_tree)  
 [2] [wikipedia - red-black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)  
 [3] [R. Sedgewick and K. Wayne Algorithms-4th - Balanced Search Trees](https://algs4.cs.princeton.edu/33balanced/)  
+[4] [red-black tree deletion](https://www.cnblogs.com/tongy0/p/5460623.html)  
