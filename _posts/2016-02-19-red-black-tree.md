@@ -366,7 +366,12 @@ Node* RBTree::remove(int key) {
     } else if (key > node->value) {
       node = node->right;
     } else { // key == node->value
-      return removeNode(node);
+      Node* removed = removeNode(node);
+      // unlink node
+      removed->left = nullptr;
+      removed->right = nullptr;
+      removed->parent = nullptr;
+      return removed;
     }
   }
   return nullptr;
