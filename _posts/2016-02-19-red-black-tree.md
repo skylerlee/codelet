@@ -323,7 +323,8 @@ void RBTree::fixDeletion(Node* node, Node* parent) {
         break;
       }
     }
-  }
+  } // accept red node
+  // set node to black
   node->color = BLACK;
 }
 
