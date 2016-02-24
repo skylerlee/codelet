@@ -143,7 +143,7 @@ void RBTree::fixInsertion(Node* node) {
       } else { // black uncle
         if (node == parent->right) { // case 3
           rotateLeft(parent);
-          parent = node;
+          swap(node, parent);
         }
         rotateRight(grandpa); // case 2
         parent->color = BLACK;
@@ -159,7 +159,7 @@ void RBTree::fixInsertion(Node* node) {
       } else { // black uncle
         if (node == parent->left) { // case 3
           rotateRight(parent);
-          parent = node;
+          swap(node, parent);
         }
         rotateLeft(grandpa); // case 2
         parent->color = BLACK;
