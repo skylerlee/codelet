@@ -255,6 +255,78 @@ Node* RBTree::successor(Node* node) {
   return node;
 }
 
+void RBTree::fixDeletion(Node* node, Node* parent) {
+  Node* sibling;
+  Node* nephew;
+  while (isBlack(node)) {
+    if (parent == nullptr) { // root
+      return;
+    }
+    if (node == parent->left) { // left branch
+      sibling = parent->right;
+      if (isRed(sibling)) { // case 1
+        rotateLeft(parent);
+        sibling->color = BLACK;
+        parent->color = RED;
+        sibling = parent->right;
+      }
+      // black sibling
+      if (isBlack(sibling->left) &&
+          isBlack(sibling->right)) { // case 4 or 5
+        sibling->color = RED;
+        node = parent;
+        parent = node->parent;
+      } else {
+        if (isRed(nephew = sibling->left)) { // case 2
+          rotateRight(sibling);
+          nephew->color = BLACK;
+          sibling->color = RED;
+          sibling = nephew;
+        }
+        // red right nephew // case 3
+        rotateLeft(parent);
+        sibling->color = parent->color;
+        parent->color = BLACK;
+        sibling->right->color = BLACK;
+        // done
+        node = this->root;
+        break;
+      }
+    } else { // right branch
+      sibling = parent->left;
+      if (isRed(sibling)) { // case 1
+        rotateRight(parent);
+        sibling->color = BLACK;
+        parent->color = RED;
+        sibling = parent->left;
+      }
+      // black sibling
+      if (isBlack(sibling->left) &&
+          isBlack(sibling->right)) { // case 4 or 5
+        sibling->color = RED;
+        node = parent;
+        parent = node->parent;
+      } else {
+        if (isRed(nephew = sibling->right)) { // case 2
+          rotateLeft(sibling);
+          nephew->color = BLACK;
+          sibling->color = RED;
+          sibling = nephew;
+        }
+        // red left nephew // case 3
+        rotateRight(parent);
+        sibling->color = parent->color;
+        parent->color = BLACK;
+        sibling->left->color = BLACK;
+        // done
+        node = this->root;
+        break;
+      }
+    }
+  }
+  node->color = BLACK;
+}
+
 Node* RBTree::removeNode(Node* node) {
   if (node->left != nullptr && node->right != nullptr) { // degree 2
     Node* succ = successor(node);
@@ -278,6 +350,9 @@ Node* RBTree::removeNode(Node* node) {
   }
   if (replacement != nullptr) {
     replacement->parent = parent;
+  }
+  if (isBlack(node)) {
+    fixDeletion(replacement, parent);
   }
   return node;
 }
