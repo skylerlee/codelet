@@ -417,6 +417,11 @@ Node* RBTree::remove(int key) {
 父结点的度，同样保证了树的平衡
 * 情况5等价于合并两个2-结点为一个3-结点的过程，因此会导致子树的高度减小，需要向上回溯
 
+## 总结
+不同于AVL树，红黑树并不能保证完美的平衡，而是通过保证黑高的相等从而实现左右子树的大致平衡，因此
+即使是在最坏情况下（比如插入序列有序时），左右子树的高度之差也不会超过\\(log(n)\\)，红黑树的总
+高度不会超过\\(2log(n)\\)，因而红黑树的搜索、插入、删除的时间复杂度都是\\(O(log(n))\\)
+
 参考资料：  
 [1] [wikipedia - 2–3 tree](https://en.wikipedia.org/wiki/2%E2%80%933_tree)  
 [2] [wikipedia - red-black tree](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)  
