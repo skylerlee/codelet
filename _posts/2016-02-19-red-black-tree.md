@@ -261,7 +261,7 @@ Node* RBTree::successor(Node* node) {
   return node;
 }
 
-void RBTree::fixDeletion(Node* node, Node* parent) {
+void RBTree::fixRemoval(Node* node, Node* parent) {
   Node* sibling;
   Node* nephew;
   while (isBlack(node)) {
@@ -359,7 +359,7 @@ Node* RBTree::removeNode(Node* node) {
     replacement->parent = parent;
   }
   if (isBlack(node)) {
-    fixDeletion(replacement, parent);
+    fixRemoval(replacement, parent);
   }
   return node;
 }
