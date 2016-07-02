@@ -55,3 +55,58 @@ public:
   }
 };
 ```
+
+* Two Pointers Swap
+
+```cpp
+#include <vector>
+#include <utility>
+using namespace std;
+
+class Solution {
+public:
+  int removeElement(vector<int>& nums, int val) {
+    if (nums.size() == 0) {
+      return 0;
+    }
+    vector<int>::iterator lhs;
+    vector<int>::iterator rhs;
+    lhs = nums.begin();
+    rhs = nums.end() - 1;
+    int count = 0;
+    while (true) {
+      // find swapping pairs
+      while (lhs < rhs && *lhs != val) { lhs++; }
+      while (lhs <= rhs && *rhs == val) { rhs--; count++; }
+      if (lhs < rhs) {
+        swap(*lhs, *rhs);
+      } else {
+        break;
+      }
+    }
+    return nums.size() - count;
+  }
+};
+```
+
+* 还有一个更简单的解法，不过我没有想到
+
+```cpp
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+  int removeElement(vector<int>& nums, int val) {
+    int count = 0;
+    for (int i = 0; i < nums.size(); i++) {
+      if (nums[i] == val) {
+        count++;
+      } else if (count) {
+        nums[i - count] = nums[i];
+      }
+    }
+    return nums.size() - count;
+  }
+};
+```
