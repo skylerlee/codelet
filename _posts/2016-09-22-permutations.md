@@ -98,3 +98,25 @@ public:
   }
 };
 ```
+
+* 其实C++的STL已经提供了排列算法`next_permutation`（不太明白为什么要提供这个库函数，
+  不常用啊），不过前提要求升序排列，有额外的开销
+
+```cpp
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Solution {
+public:
+  vector<vector<int>> permute(vector<int>& nums) {
+    vector<vector<int>> result;
+    sort(nums.begin(), nums.end());
+    result.push_back(nums);
+    while (next_permutation(nums.begin(), nums.end())) {
+      result.push_back(nums);
+    }
+    return result;
+  }
+};
+```
