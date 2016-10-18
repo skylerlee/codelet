@@ -35,7 +35,7 @@ uint64_t hashCode(const string& s) {
   for (size_t i = 0, length = s.length(); i < length; i++) {
     value = value * 31 + s[i];
   }
-  return value & 0x7fffffffffffffff;
+  return value;
 }
 ```
 
