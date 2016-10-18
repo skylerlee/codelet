@@ -25,6 +25,24 @@ require_math: true
 1. 对于相同的输入，必须有相同的输出
 2. 输出应该尽量均匀的分布于\\([0, size - 1]\\)之内
 
+### 字符串哈希
+为了一般化，哈希表的键一般为整数类型，但实际应用中最常用的还是将字符串作为键，此时就需要一种算法
+将字符串转化为整数，下面就是一种简单的算法，用于计算一个字符串的64位哈希
+
+```cpp
+uint64_t hashCode(const string& s) {
+  uint64_t value = 0;
+  for (size_t i = 0, length = s.length(); i < length; i++) {
+    value = value * 31 + s[i];
+  }
+  return value & 0x7fffffffffffffff;
+}
+```
+
+这种算法称为Horner方法，除此之外还有很多其他的字符串哈希算法，具体可以参考
+[wikipedia - List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
+
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing](https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html)  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
+[3] [wikipedia - List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)  
