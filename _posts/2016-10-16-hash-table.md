@@ -63,6 +63,9 @@ size_t HashTable::hash(const string& key) const {
 
 \\(load factor: \\alpha = size / capacity\\)
 
+键值的冲突是不可避免的，因此哈希表需要通过一定的方式来解决冲突，下面介绍最常见的两种方法，分别是
+分离链接法(Separate Chaining)和开放定址法(Open Addressing)
+
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing](https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html)  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
