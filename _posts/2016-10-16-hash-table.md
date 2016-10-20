@@ -45,6 +45,24 @@ uint64_t hashCode(const string& s) {
 这种算法称为Horner方法，除此之外还有很多其他的字符串哈希算法，具体可以参考
 [wikipedia - List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
 
+### 哈希函数
+下面的哈希函数参考了JDK1.7中HashMap的实现，通过二次哈希来减少键值冲突的概率
+
+```cpp
+size_t HashTable::hash(const string& key) const {
+  uint64_t h = hashCode(key);
+  h ^= (h >> 20) ^ (h >> 12);
+  h ^= (h >> 7) ^ (h >> 4);
+  return h % capacity_;
+}
+```
+
+### 冲突
+在大多数情况下，哈希函数的散布性非常好，但随着键值对的插入，哈希表中的空桶会越来越少，冲突的概率
+也会越来越大，我们定义表中的元素数量和表容量的比值为哈希表的装载因子
+
+\\(load factor: \\alpha = size / capacity\\)
+
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing](https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html)  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
