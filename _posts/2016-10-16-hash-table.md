@@ -34,11 +34,11 @@ require_math: true
 
 ```cpp
 uint64_t hashCode(const string& s) {
-  uint64_t value = 0;
+  uint64_t hash = 0;
   for (size_t i = 0, length = s.length(); i < length; i++) {
-    value = value * 31 + s[i];
+    hash = hash * 31 + s[i];
   }
-  return value;
+  return hash;
 }
 ```
 
