@@ -67,6 +67,47 @@ size_t HashTable::hash(const string& key) const {
 键值的冲突是不可避免的，因此哈希表需要通过一定的方式来解决冲突，下面介绍最常见的两种方法，分别是
 分离链接法(Separate Chaining)和开放定址法(Open Addressing)
 
+* 分离链接法
+这种方法借助链表来解决冲突，所有冲突的键值对会储存在同一个链表中，下面是类声明
+
+```cpp
+struct Node {
+  string key;
+  int value;
+  Node* next;
+
+  Node(const string& k, int v)
+    : key(k),
+      value(v),
+      next(nullptr) {}
+};
+
+class HashTable {
+public:
+  HashTable();
+  ~HashTable();
+  size_t size() const { return size_; }
+  // lookup
+  Node* get(const string& key) const;
+  bool contains(const string& key) const { return get(key) != nullptr; }
+  // modifiers
+  void set(const string& key, int value);
+  Node* del(const string& key);
+
+private:
+  size_t hash(const string& key) const;
+  void checkCapacity();
+  void resize(size_t capacity);
+
+  static const size_t kInitialCapacity;
+  static const double kLoadFactorLimit;
+
+  Node** buckets_;
+  size_t capacity_;
+  size_t size_;
+};
+```
+
 #### terminology
 以上两种方法还有一种有趣的命名方式：其中"separate chaining"方法又可称作"open hashing"方法
 或者"closed addressing"方法，而"open addressing"方法又可称作"closed hashing"方法，这种
