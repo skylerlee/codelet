@@ -108,6 +108,71 @@ private:
 };
 ```
 
+```cpp
+const size_t HashTable::kInitialCapacity = 8;
+const double HashTable::kLoadFactorLimit = 0.75;
+
+HashTable::HashTable()
+  : capacity_(kInitialCapacity),
+    size_(0) {
+  buckets_ = new Node*[capacity_]();
+}
+
+HashTable::~HashTable() {
+  delete[] buckets_;
+}
+
+Node* HashTable::get(const string& key) const {
+  size_t i = hash(key);
+  Node* node = buckets_[i];
+  while (node != nullptr && node->key != key) {
+    node = node->next;
+  }
+  return node;
+}
+
+void HashTable::set(const string& key, int value) {
+  checkCapacity();
+  size_t i = hash(key);
+  Node* node = buckets_[i];
+  while (node != nullptr) {
+    if (node->key == key) {
+      node->value = value; // update
+      return;
+    }
+    node = node->next;
+  }
+  // prepend
+  Node* newNode = new Node(key, value);
+  newNode->next = buckets_[i];
+  buckets_[i] = newNode;
+  size_++;
+}
+
+Node* HashTable::del(const string& key) {
+  checkCapacity();
+  size_t i = hash(key);
+  Node* node = buckets_[i];
+  Node* prev = node;
+  while (node != nullptr) {
+    if (node->key == key) { // found
+      Node* removed = node;
+      if (node == prev) { // at head
+        buckets_[i] = node->next;
+      } else { // at tail
+        prev->next = node->next;
+      }
+      size_--;
+      removed->next = nullptr;
+      return removed;
+    }
+    prev = node;
+    node = node->next;
+  }
+  return nullptr;
+}
+```
+
 #### terminology
 以上两种方法还有一种有趣的命名方式：其中"separate chaining"方法又可称作"open hashing"方法
 或者"closed addressing"方法，而"open addressing"方法又可称作"closed hashing"方法，这种
