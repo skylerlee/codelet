@@ -68,7 +68,7 @@ size_t HashTable::hash(const string& key) const {
 分离链接法(Separate Chaining)和开放定址法(Open Addressing)
 
 * 分离链接法
-这种方法借助链表来解决冲突，所有冲突的键值对会储存在同一个链表中，下面是类声明
+这种方法借助链表来解决冲突，所有冲突的键值对会储存在同一个链表中
 
 ```cpp
 struct Node {
@@ -172,6 +172,8 @@ Node* HashTable::del(const string& key) {
   return nullptr;
 }
 ```
+
+很显然，链表的平均长度为\\(\\alpha\\)，查询操作的平均时间复杂度为\\(O(1 + \\alpha)\\)
 
 #### terminology
 以上两种方法还有一种有趣的命名方式：其中"separate chaining"方法又可称作"open hashing"方法
