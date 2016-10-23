@@ -184,6 +184,48 @@ Node* HashTable::del(const string& key) {
 "open addressing"方法将所有的同义词都储存在内部数组之中，因此又称作"closed hashing"，个人
 感觉这种命名方式比较ambiguous，只做了解即可
 
+### 再散列
+因为装载因子越大，冲突发生的概率也越大，导致哈希表的性能下降，为了保证装载因子不超过一定值，一种
+常见的做法是将哈希表扩容后，重新进行哈希映射，这个过程叫做再散列
+
+* 分离链接法的再散列
+
+```cpp
+void HashTable::checkCapacity() {
+  double loadFactor = (double) size_ / capacity_;
+  if (loadFactor > kLoadFactorLimit) {
+    // expand
+    resize(capacity_ << 1);
+  } else if (loadFactor < 0.25 * kLoadFactorLimit &&
+             capacity_ > kInitialCapacity) {
+    // shrink
+    resize(capacity_ >> 1);
+  }
+}
+
+void HashTable::resize(size_t capacity) {
+  Node** oldBuckets = buckets_;
+  size_t oldCapacity = capacity_;
+  capacity_ = capacity;
+  buckets_ = new Node*[capacity_]();
+  // rehash
+  Node* node;
+  Node* next;
+  size_t j;
+  for (size_t i = 0; i < oldCapacity; i++) {
+    node = oldBuckets[i];
+    while (node != nullptr) {
+      next = node->next;
+      j = hash(node->key); // new index
+      node->next = buckets_[j]; // prepend
+      buckets_[j] = node;
+      node = next; // next
+    }
+  }
+  // release
+  delete[] oldBuckets;
+}
+```
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing](https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html)  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
