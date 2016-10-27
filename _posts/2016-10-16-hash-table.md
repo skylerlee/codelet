@@ -185,6 +185,58 @@ Node* HashTable::del(const string& key) {
 
 很显然，链表的平均长度为\\(\\alpha\\)，查询操作的平均时间复杂度为\\(O(1 + \\alpha)\\)
 
+* 开放定址法
+这种方法将所有键值对都储存在桶数组内部，如果键值发生冲突，则探测其他的桶，直到找到一个空桶为止，
+常见的探测方法有：线性探测、平方探测、双哈希，下面以平方探测法作为示例
+
+```cpp
+struct Entry {
+  enum Type {
+    EMPTY,
+    ACTIVE,
+    DELETED
+  };
+
+  Type type;
+  string key;
+  int value;
+
+  Entry()
+    : type(EMPTY) {}
+
+  Entry(const string& k, int v)
+    : type(EMPTY),
+      key(k),
+      value(v) {}
+};
+
+class HashTable {
+public:
+  HashTable();
+  ~HashTable();
+  size_t size() const { return numNonEmpty_ - numDeleted_; }
+  // lookup
+  Entry* get(const string& key) const;
+  bool contains(const string& key) const { return get(key) != nullptr; }
+  // modifiers
+  void set(const string& key, int value);
+  Entry* del(const string& key);
+
+private:
+  size_t hash(const string& key) const;
+  Entry* entryFor(const string& key) const;
+  void checkCapacity();
+  void resize(size_t capacity);
+
+  static const size_t kInitialCapacity;
+  static const double kLoadFactorLimit;
+
+  Entry* buckets_;
+  size_t capacity_;
+  size_t numNonEmpty_;
+  size_t numDeleted_;
+};
+```
 #### terminology
 以上两种方法还有一种有趣的命名方式：其中"separate chaining"方法又可称作"open hashing"方法
 或者"closed addressing"方法，而"open addressing"方法又可称作"closed hashing"方法，这种
