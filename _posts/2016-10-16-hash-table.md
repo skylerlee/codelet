@@ -237,6 +237,70 @@ private:
   size_t numDeleted_;
 };
 ```
+
+```cpp
+const size_t HashTable::kInitialCapacity = 8;
+const double HashTable::kLoadFactorLimit = 0.5;
+
+HashTable::HashTable()
+  : capacity_(kInitialCapacity),
+    numNonEmpty_(0),
+    numDeleted_(0) {
+  buckets_ = new Entry[capacity_];
+}
+
+HashTable::~HashTable() {
+  delete[] buckets_;
+}
+
+Entry* HashTable::entryFor(const string& key) const {
+  size_t i = hash(key);
+  Entry* e = buckets_ + i;
+  size_t offset = 1;
+  while (e->type != Entry::EMPTY &&
+         (e->type != Entry::ACTIVE || e->key != key)) {
+    i = (i + offset++) % capacity_;
+    e = buckets_ + i;
+  } // found key or empty bucket
+  return e;
+}
+
+Entry* HashTable::get(const string& key) const {
+  Entry* e = entryFor(key);
+  if (e->type == Entry::ACTIVE) {
+    return e;
+  } else {
+    return nullptr;
+  }
+}
+
+void HashTable::set(const string& key, int value) {
+  checkCapacity();
+  Entry* e = entryFor(key);
+  if (e->type == Entry::ACTIVE) {
+    e->value = value; // update
+  } else {
+    // add
+    e->key = key;
+    e->value = value;
+    e->type = Entry::ACTIVE;
+    numNonEmpty_++;
+  }
+}
+
+Entry* HashTable::del(const string& key) {
+  checkCapacity();
+  Entry* e = entryFor(key);
+  if (e->type == Entry::ACTIVE) {
+    e->type = Entry::DELETED; // mark deleted
+    numDeleted_++;
+    return e;
+  } else {
+    return nullptr;
+  }
+}
+```
+
 #### terminology
 以上两种方法还有一种有趣的命名方式：其中"separate chaining"方法又可称作"open hashing"方法
 或者"closed addressing"方法，而"open addressing"方法又可称作"closed hashing"方法，这种
