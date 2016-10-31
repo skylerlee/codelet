@@ -26,7 +26,7 @@ require_math: true
 
 一个好的哈希函数应该满足以下条件：
 1. 对于相同的输入，必须有相同的输出
-2. 输出应该尽量均匀的分布于\\([0, size - 1]\\)之内
+2. 输出下标的分布要尽量的均匀，尽量避免冲突的发生
 
 ### 装填因子
 哈希表键值发生冲突的概率与表的空满程度有关，哈希表越满，空桶就越少，发生冲突的概率自然也就越大，
@@ -37,7 +37,7 @@ require_math: true
 
 ### 字符串哈希
 为了一般化，哈希表的键一般为整数类型，但实际应用中最常用的还是将字符串作为键，此时就需要一种算法
-将字符串转化为整数，下面就是一种简单的算法，用于计算一个字符串的64位哈希
+将字符串转化为整数，下面是JDK实现的一种字符串哈希算法，用于计算一个字符串的64位哈希
 
 ```cpp
 uint64_t hashCode(const string& s) {
@@ -49,11 +49,11 @@ uint64_t hashCode(const string& s) {
 }
 ```
 
-这种算法称为Horner方法，除此之外还有很多其他的字符串哈希算法，具体可以参考
+这种算法将字符串当做整数处理，称为Horner方法，此外还有很多其他的字符串哈希算法，具体可以参考
 [wikipedia - List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)
 
 ### 哈希函数
-下面的哈希函数参考了JDK1.7中HashMap的实现，通过二次哈希来减少键值冲突的概率
+下面的哈希函数参考了JDK1.7中HashMap的实现，通过二次哈希的方法对哈希码作进一步混淆
 
 ```cpp
 size_t HashTable::hash(const string& key) const {
@@ -403,6 +403,11 @@ void HashTable::resize(size_t capacity) {
   delete[] oldBuckets;
 }
 ```
+
+### 优化
+* 取模运算：当表的容量为2的整数次幂时，取模运算可以用按位与运算等价
+
+  `h % capacity` <=> `h & (capacity - 1)`
 
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing]()  
