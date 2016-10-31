@@ -409,6 +409,15 @@ void HashTable::resize(size_t capacity) {
 
   `h % capacity` <=> `h & (capacity - 1)`
 
+* 扩容/缩容：可以发现，当表的容量为2的 w 次幂时，哈希码最低的 w 位实际上就是模运算之后的下标，
+因此当表扩容到之前的2倍，或者缩容到之前的1/2时，一条记录的新下标只与之前的第 w+1 位有关，如果
+第 w+1 位为0，则记录的下标不变，如果为1，则下标加/减capacity
+
+  如果采用的分离链接法，那么一条链表上平均有50%的元素是不需要移动的，跳过这些元素，可以有效提升
+扩容/缩容的性能，Android SDK中的HashMap就应用了这种优化
+
+  至于采用开放定址法的哈希表，由于元素拷贝是不可避免的，所以无法有效优化
+
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing]()  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
