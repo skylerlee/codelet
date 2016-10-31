@@ -364,6 +364,46 @@ void HashTable::resize(size_t capacity) {
 }
 ```
 
+* 开放定址法的再哈希
+
+```cpp
+void HashTable::checkCapacity() {
+  double loadFactor = (double) size() / capacity_;
+  double fillFactor = (double) numNonEmpty_ / capacity_;
+  if (fillFactor > kLoadFactorLimit) {
+    // expand
+    resize(capacity_ << 1);
+  } else if (loadFactor < 0.25 * kLoadFactorLimit &&
+             capacity_ > kInitialCapacity) {
+    // shrink
+    resize(capacity_ >> 1);
+  }
+}
+
+void HashTable::resize(size_t capacity) {
+  Entry* oldBuckets = buckets_;
+  size_t oldCapacity = capacity_;
+  capacity_ = capacity;
+  buckets_ = new Entry[capacity_];
+  // rehash
+  Entry* o;
+  Entry* e;
+  for (size_t i = 0; i < oldCapacity; i++) {
+    o = oldBuckets + i;
+    if (o->type == Entry::ACTIVE) {
+      e = entryFor(o->key);
+      e->key = o->key;
+      e->value = o->value;
+      e->type = Entry::ACTIVE;
+    }
+  }
+  numNonEmpty_ -= numDeleted_;
+  numDeleted_ = 0;
+  // release
+  delete[] oldBuckets;
+}
+```
+
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing]()  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
