@@ -58,9 +58,13 @@ JavaScript中一共有7种位操作符
   = 2147483644
 ```
 
-所以，可以得知
-* 有符号右移操作，左边移入的bit位填充1
-* 无符号右移操作，左边移入的bit位填充0
+所以，对于负数
+* 有符号右移操作，左边移入的bit填充1
+* 无符号右移操作，左边移入的bit填充0
+
+JavaScript的位操作实际上和Java保持了一致，因为不支持unsigned整数类型，导致最高位等于1的整数
+会被表示为负数，而负数的无符号右移和除以2并不能做等价，所以就引入了有符号右移，用来保持等价性，
+所以有符号右移又称作算数右移(arithmetic shift)，无符号右移又称作逻辑右移(logical shift)
 
 参考资料：  
 [1] [MDN - Bitwise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)  
