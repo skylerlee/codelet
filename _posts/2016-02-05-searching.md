@@ -322,6 +322,6 @@ AVL树始终都可以保持平衡，因此在任何情况下它的查找复杂�
 红黑树是一种重要的自平衡树，常用于实现集合、字典等数据结构，限于篇幅，只能另外开篇介绍了
 
 参考资料：  
-[1] [Thomas H. Cormen Introduction to algorithms](https://mitpress.mit.edu/books/introduction-algorithms)  
+[1] [Thomas H. Cormen Introduction to algorithms]()  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Binary Search Trees](https://algs4.cs.princeton.edu/32bst/)  
 [3] [R. Sedgewick and K. Wayne Algorithms-4th - AVLTreeST](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/AVLTreeST.java.html)  
