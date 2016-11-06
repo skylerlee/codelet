@@ -8,11 +8,5 @@ use_require: true
 page_script: leetcode_template
 ---
 
-Question
---------
-
-Solution
---------
-
-```cpp
-```
+<div class="ace-editor" id="src-box"></div>
+<div class="ace-editor" id="out-box"></div>
