@@ -97,3 +97,6 @@ typeof Function.prototype.__proto__ === 'object'
     其为屏蔽属性(shadowed property)，具体情况就不展开了
 * `in`操作符：和`[[Get]]`一样，`in`操作符在检查属性存在性时会遍历原型链，因此在判断属性是否
 直接存在时，应该借助`hasOwnProperty`函数
+
+参考资料：  
+[1] [You-Dont-Know-JS Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md)
