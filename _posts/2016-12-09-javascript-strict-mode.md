@@ -29,6 +29,19 @@ JavaScript的执行模式可以分为严格模式和宽松模式，严格模式�
 }())
 ```
 
+**this不指向全局对象**
+
+```js
+(function () {
+  console.log(this) // Window
+}())
+
+(function () {
+  'use strict'
+  console.log(this) // undefined
+}())
+```
+
 **抛出静默错误**
 
 ```js
@@ -42,21 +55,6 @@ JavaScript的执行模式可以分为严格模式和宽松模式，严格模式�
   NaN = 100 // TypeError: Cannot assign to read only property 'NaN' of
             // object '#<Window>'
   console.log(NaN)
-}())
-```
-
-**禁用保留字**
-
-```js
-(function () {
-  var let = 100
-  console.log(let) // 100
-}())
-
-(function () {
-  'use strict'
-  var let = 100 // SyntaxError: Unexpected strict mode reserved word
-  console.log(let)
 }())
 ```
 
@@ -123,5 +121,20 @@ JavaScript的执行模式可以分为严格模式和宽松模式，严格模式�
   }
 
   test()
+}())
+```
+
+**禁用保留字**
+
+```js
+(function () {
+  var let = 100
+  console.log(let) // 100
+}())
+
+(function () {
+  'use strict'
+  var let = 100 // SyntaxError: Unexpected strict mode reserved word
+  console.log(let)
 }())
 ```
