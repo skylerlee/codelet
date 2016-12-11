@@ -73,6 +73,23 @@ JavaScript的执行模式可以分为严格模式和宽松模式，严格模式�
 }())
 ```
 
+**单独的eval作用域**
+
+```js
+(function () {
+  var a = 10
+  eval('var a = 20')
+  console.log(a) // 20
+}())
+
+(function () {
+  'use strict'
+  var a = 10
+  eval('var a = 20')
+  console.log(a) // 10
+}())
+```
+
 **不绑定arguments**
 
 ```js
