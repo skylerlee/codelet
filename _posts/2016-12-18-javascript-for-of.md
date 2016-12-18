@@ -96,3 +96,7 @@ for (let n of iter) { ... }
 // 会返回this对象本身
 gen[Symbol.iterator] === iter[Symbol.iterator] // true
 ```
+
+参考资料：  
+[1] [MDN - Iteration Protocols](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)  
+[2] [MDN - Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*)  
