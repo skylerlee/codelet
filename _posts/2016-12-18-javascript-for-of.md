@@ -68,3 +68,31 @@ try {
   }
 }
 ```
+
+最后再提一下生成器，注意生成器对象既是迭代器也是可迭代对象，所有内建迭代器也是可迭代对象，但是
+自定义的迭代器对象可能不具有此性质，需要特别注意。
+
+```js
+function* genNums () {
+  let i = 0
+  while (true) { yield ++i }
+}
+
+let gen = genNums()
+
+gen[Symbol.iterator] !== undefined // true
+gen[Symbol.iterator]() === gen // true
+for (let n of gen) { ... }
+// 可见生成器的迭代器是生成器本身，因此生成器对象是可迭代对象，可以用for-of遍历
+
+let iter = [][Symbol.iterator]()
+
+iter[Symbol.iterator] !== undefined // true
+iter[Symbol.iterator]() === iter // true
+for (let n of iter) { ... }
+// 数组的迭代器对象也是可迭代对象，可以用for-of遍历
+
+// 其根本原因是gen/iter二者都继承自`%IteratorPrototype%`原型，此原型的`@@iterator`方法
+// 会返回this对象本身
+gen[Symbol.iterator] === iter[Symbol.iterator] // true
+```
