@@ -82,3 +82,73 @@ function putObject(_ref3) {
     c = _ref3.z;
 }
 ```
+
+4. 默认属性值
+
+```js
+let obj = {
+  a: 1
+}
+
+let {
+  a = 0,
+  b = 0
+} = obj
+```
+
+解构的同时还可以指定默认参数，对函数传参也一样适用
+
+```js
+"use strict";
+
+var obj = {
+  a: 1
+};
+
+var _obj$a = obj.a,
+    a = _obj$a === undefined ? 0 : _obj$a,
+    _obj$b = obj.b,
+    b = _obj$b === undefined ? 0 : _obj$b;
+```
+
+5. 深对象赋值
+
+```js
+var obj = {
+  a: 0,
+  b: {
+    c: 1,
+    d: {
+      e: 2
+    }
+  }
+}
+
+var {
+  a,
+  b: {
+    d: {
+      e: e
+    }
+  }
+} = obj
+```
+
+解构赋值还可以用于获取深对象中的属性值，不过为了更安全的操作最好还是用`_.get()`
+
+```js
+"use strict";
+
+var obj = {
+  a: 0,
+  b: {
+    c: 1,
+    d: {
+      e: 2
+    }
+  }
+};
+
+var a = obj.a,
+    e = obj.b.d.e;
+```
