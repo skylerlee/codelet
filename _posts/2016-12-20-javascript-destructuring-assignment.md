@@ -83,6 +83,55 @@ function putObject(_ref3) {
 }
 ```
 
+再来看看`_slicedToArray`是怎么运作的，函数看似很长其实并不复杂，实际上就是利用`for-of`语句
+遍历迭代器，和之前介绍的有很多重复之处
+
+```js
+var _slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = []; // 结果数组
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = arr[Symbol.iterator](),
+          _step;
+          !(_iteratorNormalCompletion = (_step = _iterator.next()).done);
+          _iteratorNormalCompletion = true) { // for-of遍历
+        _arr.push(_step.value);
+        if (i && _arr.length === i) break; // 达到指定长度，若未指定则遍历至结束
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
+    return _arr;
+  }
+
+  return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i); // 若是可迭代对象则只截取前i个
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+```
+
 4. 默认属性值
 
 ```js
