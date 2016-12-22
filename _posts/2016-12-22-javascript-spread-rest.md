@@ -68,3 +68,37 @@ var dst = _extends({
 ```
 
 可见扩展语法和`Object.assign()`一样，都是对对象进行浅拷贝
+
+除了扩展数组之外，还可以用于函数参数填充
+
+```js
+let arg = [1, 2, 3]
+test(0, ...arg)
+```
+
+```js
+var arg = [1, 2, 3];
+test.apply(undefined, [0].concat(arg));
+```
+
+剩余语法和上面很相似，不过只能用于函数形参之中，用于匹配剩余的实参
+
+```js
+function test (a, b, ...rest) {
+  console.log(rest)
+}
+```
+
+```js
+function test(a, b) {
+  for (var _len = arguments.length,
+      rest = Array(_len > 2 ? _len - 2 : 0),
+      _key = 2;
+      _key < _len;
+      _key++) {
+    rest[_key - 2] = arguments[_key];
+  }
+
+  console.log(rest);
+}
+```
