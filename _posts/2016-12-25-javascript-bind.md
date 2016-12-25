@@ -56,3 +56,45 @@ var t = new (Test.bind(null, 0, 1, 2, 3))
 
 发现了问题吗？如果通过`new`关键字调用`bind`返回的函数，按照我之前的写法`t`应该是个空对象`{}`
 才对呀，可是为什么会执行原函数的绑定呢？看来`bind`里面针对`new`有特殊的处理，下面就来分析一下
+
+MDN上对于构造函数绑定有如下说明：
+
+> Bound functions are automatically suitable for use with the `new` operator to
+> construct new instances created by the target function. When a bound function
+> is used to construct a value, the provided `this` is ignored.
+> However, provided arguments are still prepended to the constructor call.
+
+`bind`函数的polyfill代码如下：
+
+```js
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function(oThis) {
+    if (typeof this !== 'function') {
+      // closest thing possible to the ECMAScript 5
+      // internal IsCallable function
+      throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+    }
+
+    var aArgs   = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP    = function() {},
+        fBound  = function() {
+          return fToBind.apply(this instanceof fNOP
+                 ? this
+                 : oThis,
+                 aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    if (this.prototype) {
+      // Function.prototype doesn't have a prototype property
+      fNOP.prototype = this.prototype;
+    }
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };
+}
+```
+
+参考资料：  
+[1] [MDN - Function Bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
