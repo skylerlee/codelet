@@ -38,3 +38,21 @@ Function.prototype.bind = function (thisArg) {
   }
 }
 ```
+
+但后来看了You-Dont-Know-JS才发现原来事情并不简单，下面就来解释为什么
+
+还记得之前讲过的构造函数变长参数调用的问题吗？
+
+```js
+var arg = [1, 2, 3];
+var t = new (Function.prototype.bind.apply(Test, [null].concat([0], arg)))();
+```
+
+可以简化为
+
+```js
+var t = new (Test.bind(null, 0, 1, 2, 3))
+```
+
+发现了问题吗？如果通过`new`关键字调用`bind`返回的函数，按照我之前的写法`t`应该是个空对象`{}`
+才对呀，可是为什么会执行原函数的绑定呢？看来`bind`里面针对`new`有特殊的处理，下面就来分析一下
