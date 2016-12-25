@@ -81,6 +81,23 @@ var arg = [1, 2, 3];
 test.apply(undefined, [0].concat(arg));
 ```
 
+还可以用于扩展构造函数的参数，大大简化了构造函数变长参数调用的问题，下面看看具体代码
+
+```js
+let arg = [1, 2, 3]
+let t = new Test(0, ...arg)
+```
+
+会生成以下代码
+
+```js
+var arg = [1, 2, 3];
+var t = new (Function.prototype.bind.apply(Test, [null].concat([0], arg)))();
+```
+
+主要思路是通过`bind`函数绑定参数列表，然后用`new`调用新产生的函数，但是其中涉及到了`bind`函数
+具有的一个特性，具体原理可能又要用一篇博客讲解了。
+
 剩余语法和上面很相似，不过只能用于函数形参之中，用于匹配剩余的实参
 
 ```js
