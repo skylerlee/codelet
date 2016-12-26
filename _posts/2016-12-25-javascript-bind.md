@@ -97,4 +97,5 @@ if (!Function.prototype.bind) {
 ```
 
 参考资料：  
-[1] [MDN - Function Bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+[1] [MDN - Function bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)  
+[2] [MDN - Object create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)  
