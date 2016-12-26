@@ -153,6 +153,33 @@ if (typeof Object.create !== "function") {
 
 `fNOP`用于以兼容的方式设置对象的隐式原型
 
+**注意：**
+其实这个polyfill还有一个问题，就是`bind`方式构造的实例会被添加一个额外的`fBound`原型，也就是
+说`bind`实际会产生一个子类，而原生的`bind`实现就没有这个问题
+
+```js
+function Test () {
+  console.log(this.foo)
+}
+
+var ctx = {
+  foo: 'bar'
+}
+
+var bindTest = Test.bind(ctx)
+
+var t0 = new Test()     // undefined
+var t1 = new bindTest() // undefined not 'bar'
+
+t0 instanceof Test      // true
+t1 instanceof bindTest  // true
+t1 instanceof Test      // true
+t0 instanceof bindTest  // false
+```
+
+通过上面的代码，可以得知`bindTest`是`Test`的子类，因此`t0`不是`bindTest`的实例，但如果使用
+的是原生`bind`实现，则这两者是平级的。
+
 参考资料：  
 [1] [MDN - Function bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)  
 [2] [MDN - Object create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)  
