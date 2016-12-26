@@ -154,8 +154,9 @@ if (typeof Object.create !== "function") {
 `fNOP`用于以兼容的方式设置对象的隐式原型
 
 **注意：**
-其实这个polyfill还有一个问题，就是`bind`方式构造的实例会被添加一个额外的`fBound`原型，也就是
-说`bind`实际会产生一个子类，而原生的`bind`实现就没有这个问题
+其实这个polyfill还有一些问题，首先`bind`方式构造的实例会被添加一个额外的`fBound`原型，也就是
+说`bind`实际会产生一个子类；其次创建的绑定函数具有`prototype`，而正确的绑定应该是没有的；还有
+绑定函数的`length`属性始终为0，而不是原函数的形参个数。
 
 ```js
 function Test () {
