@@ -96,6 +96,63 @@ if (!Function.prototype.bind) {
 }
 ```
 
+1. 首先检查自身是否callable
+2. 然后得到绑定参数
+3. 最后是创建并返回绑定后的函数`fBound`
+
+其中的关键就在于第三步中的`fBound`以及`fNOP`的作用，又可以分为两个阶段：
+
+1. 绑定时
+  设置`fNOP`的原型为原函数的原型，并设置`fBound`的原型，也就是说通过`fBound`构造产生的实例
+  具有原型链`fBound->fNOP==this`，也就是说`fBound`原型继承自`fNOP`
+
+2. 调用时
+  通过`this instanceof fNOP`判断是否是`new`调用，如果是则忽略指定的`oThis`，而是以`new`
+  创建的新对象作为`this`调用原函数初始化，这就是`bind`对于`new`的特殊处理
+
+好了，过程大致梳理清楚了，但是还有一个疑问，那就是为什么一定要通过`fNOP`继承呢，调用时直接通过
+`this instanceof fBound`一样可以区分构造函数调用啊，至于原型也可以通过`Object.create()`
+函数来设置，也就是下面这样
+
+```js
+var fToBind = this
+var fBound  = function () {
+  return fToBind.apply(this instanceof fBound
+         ? this
+         : oThis)
+}
+
+fBound.prototype = Object.create(this.prototype)
+
+return fBound
+```
+
+因为IE9以下不支持`Object.create()`函数，所以还需要一个polyfill，其中对于对象隐式原型的设置
+其实也是通过一个dummy function来实现的，这样一来`fNOP`的意义就清楚了
+
+```js
+if (typeof Object.create !== "function") {
+  Object.create = function (proto, propertiesObject) {
+    if (typeof proto !== 'object' && typeof proto !== 'function') {
+      throw new TypeError('Object prototype may only be an Object: ' + proto);
+    } else if (proto === null) {
+      throw new Error("This browser's implementation of Object.create is a shim and doesn't support 'null' as the first argument.");
+    }
+
+    if (typeof propertiesObject != 'undefined') {
+      throw new Error("This browser's implementation of Object.create is a shim and doesn't support a second argument.");
+    }
+
+    function F() {}
+    F.prototype = proto;
+
+    return new F();
+  };
+}
+```
+
+`fNOP`用于以兼容的方式设置对象的隐式原型
+
 参考资料：  
 [1] [MDN - Function bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)  
 [2] [MDN - Object create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)  
