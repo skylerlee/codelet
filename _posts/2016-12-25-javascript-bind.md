@@ -159,23 +159,16 @@ if (typeof Object.create !== "function") {
 绑定函数的`length`属性始终为0，而不是原函数的形参个数。
 
 ```js
-function Test () {
-  console.log(this.foo)
-}
+function Test () {}
+var bindTest = Test.bind({})
 
-var ctx = {
-  foo: 'bar'
-}
+var t0 = new Test()
+var t1 = new bindTest()
 
-var bindTest = Test.bind(ctx)
-
-var t0 = new Test()     // undefined
-var t1 = new bindTest() // undefined not 'bar'
-
-t0 instanceof Test      // true
-t1 instanceof bindTest  // true
-t1 instanceof Test      // true
-t0 instanceof bindTest  // false
+t0 instanceof Test     // true
+t1 instanceof bindTest // true
+t1 instanceof Test     // true
+t0 instanceof bindTest // false
 ```
 
 通过上面的代码，可以得知`bindTest`是`Test`的子类，因此`t0`不是`bindTest`的实例，但如果使用
