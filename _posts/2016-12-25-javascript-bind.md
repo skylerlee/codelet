@@ -153,6 +153,31 @@ if (typeof Object.create !== "function") {
 
 `fNOP`用于以兼容的方式设置对象的隐式原型
 
+还有一个疑问，为什么MDN用的是`this instanceof fNOP`，而不是`this instanceof fBound`呢？
+这样明显有一个问题，那就是`instanceof`检查的‘区间’变大了，比如像下面这样：
+
+```js
+function Test () {
+  console.log(this.foo)
+}
+
+var t = new Test() // undefined
+t.foo = 'instance'
+
+var bindTest = Test.bind({
+  foo: 'strong'
+})
+
+bindTest.call({   // strong
+  foo: 'explicit'
+})
+bindTest.call(t)  // instance
+```
+
+可见，如果使用原函数的实例`call`绑定函数，强绑定会失效，造成不一致的行为，所以在这一块MDN可能
+实现的并不好，我们还可以参考[es5-shim](https://github.com/es-shims/es5-shim)的`bind`
+实现，其中就是用的`this instanceof fBound`，这样更严格一些。
+
 **注意：**
 其实这个polyfill还有一些问题，首先`bind`方式构造的实例会被添加一个额外的`fBound`原型，也就是
 说`bind`实际会产生一个子类；其次创建的绑定函数具有`prototype`，而正确的绑定应该是没有的；还有
@@ -173,6 +198,9 @@ t0 instanceof bindTest // false
 
 通过上面的代码，可以得知`bindTest`是`Test`的子类，因此`t0`不是`bindTest`的实例，但如果使用
 的是原生`bind`实现，则这两者是平级的。
+
+其实`bind`的标准实现是很复杂的，polyfill只满足了大多数情况下的功能，我们平常使用时还是要多用
+正常用法，少用黑魔法，避免掉到坑里。
 
 参考资料：  
 [1] [MDN - Function bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)  
