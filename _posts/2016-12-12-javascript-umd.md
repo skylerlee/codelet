@@ -13,12 +13,12 @@ tags:
 
 今天就先研究一下rollup的模块打包格式
 
-命令`rollup -h`告诉我们bundle的输出格式可选5种，分别是：[amd, cjs, es, iife, umd]，其中
-umd据说可以适配所有的模块环境，那么我们就先输出一个umd的bundle看看。
-
 先介绍一下工具链：
 * babel@6.18 使用es6
 * rollup@0.36
+
+命令`rollup -h`告诉我们bundle的输出格式可选5种，分别是：[amd, cjs, es, iife, umd]，其中
+umd据说可以适配所有的模块环境，那么我们就先输出一个umd的bundle看看。
 
 配置好rollup后，使用`rollup -f umd -n Bundle entry.js`命令就可以看到输出的结果啦，因为
 生成的代码不好看，所以这里我就美化了一下，去掉了ternary，以下是代码：
