@@ -97,6 +97,67 @@ try {
 之后的`return`函数执行再发生异常时，后面的异常会覆盖迭代产生的异常，从而导致循环语句中的错误栈
 信息丢失，不利于代码调试。
 
+可以验证一下
+
+```js
+let obj = {
+  [Symbol.iterator] () {
+    let count = 0;
+    return {
+      next () {
+        if (count < 10) {
+          return {
+            done: false,
+            value: count++
+          };
+        } else {
+          return {
+            done: true,
+            value: undefined
+          };
+        }
+      },
+      return () {
+        throw new Error('Invalid return');
+        count = 0;
+      }
+    };
+  }
+};
+
+// 如果只使用单层`try`，应该改写成如下代码
+var _iteratorNormalCompletion = true;
+
+try {
+  for (var _iterator = obj[Symbol.iterator](),
+      _step;
+      !(_iteratorNormalCompletion = (_step = _iterator.next()).done);
+      _iteratorNormalCompletion = true) {
+    var n = _step.value;
+    if (n === 5) {
+      throw new Error('Bad state');
+    }
+    console.log(n);
+  }
+} catch (err) {
+  throw err;
+} finally {
+  if (!_iteratorNormalCompletion && _iterator.return) {
+    _iterator.return();
+  }
+}
+// Uncaught Error: Invalid return
+
+// 使用原生的`for-of`循环
+for (let n of obj) {
+  if (n === 5) {
+    throw new Error('Bad state');
+  }
+  console.log(n);
+}
+// Uncaught Error: Bad state
+```
+
 最后再提一下生成器，注意生成器对象既是迭代器也是可迭代对象，所有内建迭代器也是可迭代对象，但是
 自定义的迭代器对象可能不具有此性质，需要特别注意。
 
