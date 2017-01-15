@@ -9,7 +9,7 @@ tags:
 ---
 
 最近发现了一个很火的Python Web框架——Flask，在Github上已有10K级的Star，
-(mitsuhiko-flask)[https://github.com/mitsuhiko/flask]——有Python微框架之称。
+[mitsuhiko-flask](https://github.com/mitsuhiko/flask)——有Python微框架之称。
 
 ### 简介
 说起Flask就不得不提到Werkzeug，Werkzeug是一个符合WSGI规范的基础库，其中包含有很多Web开发的
