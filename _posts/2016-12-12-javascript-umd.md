@@ -72,6 +72,6 @@ umd据说可以适配所有的模块环境，那么我们就先输出一个umd�
 * vue.esm.js - ES Module
 
 参考资料：  
-[1] [universal-module-definition](https://github.com/umdjs/umd#umd-universal-module-definition)  
-[2] [rollup ES6-modules](https://github.com/rollup/rollup/wiki/ES6-modules#why-use-modules-at-all)  
-[3] [vuejs build files](https://github.com/vuejs/vue/tree/dev/dist#explanation-of-build-files)  
+[1] [GitHub UMD - universal-module-definition](https://github.com/umdjs/umd#umd-universal-module-definition)  
+[2] [GitHub Rollup - ES6-modules](https://github.com/rollup/rollup/wiki/ES6-modules#why-use-modules-at-all)  
+[3] [GitHub Vue.js - build files](https://github.com/vuejs/vue/tree/dev/dist#explanation-of-build-files)  
