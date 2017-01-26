@@ -428,7 +428,7 @@ void HashTable::resize(size_t capacity) {
 算法在最坏情况下的时间复杂度不超过\\(O(log(n))\\)
 
 参考资料：  
-[1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing]()  
+[1] Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
 [3] [wikipedia - List of hash functions](https://en.wikipedia.org/wiki/List_of_hash_functions)  
 [4] [wikipedia - Hash table](https://en.wikipedia.org/wiki/Hash_table)  
