@@ -103,10 +103,8 @@ def db_connect():
 面向切面编程（AOP）本质上是对面向对象编程（OOP）的一种补充，其目的都是增加程序的模块化程度。
 
 参考资料：  
-[1] Aspect-oriented_programming. Wikipedia.
-[https://en.wikipedia.org/wiki/Aspect-oriented_programming](https://en.wikipedia
-.org/wiki/Aspect-oriented_programming)  
-[2] Ian Sommerville. "Aspect-oriented software engineering." Software Engineering,
-Ninth Edition. (2011): 359-361.  
+[1] [Wikipedia - Aspect-oriented_programming](https://en.wikipedia.org/wiki/Aspect-oriented_programming)  
+[2] Ian Sommerville. "Aspect-oriented software engineering."
+Software Engineering, Ninth Edition. (2011): 359-361.  
 [3] Jake Wharton. "ButterKnife Android Views and Methods Binding."
-[ButterKnife Doc](http://jakewharton.github.io/butterknife/javadoc/).  
+[ButterKnife Doc](http://jakewharton.github.io/butterknife/javadoc/)  
