@@ -119,6 +119,16 @@ HashTable::HashTable()
 }
 
 HashTable::~HashTable() {
+  Node* node;
+  Node* next;
+  for (size_t i = 0; i < capacity_; i++) {
+    node = buckets_[i];
+    while (node != nullptr) {
+      next = node->next;
+      delete node;
+      node = next;
+    }
+  }
   delete[] buckets_;
 }
 
