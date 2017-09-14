@@ -1,0 +1,18 @@
+builddir = build
+cflags = -std=c++11 -I./
+lflags = -pthread
+
+rule cxx
+  command = g++ $cflags -c $in -o $out
+
+rule link
+  command = g++ $in -o $out $lflags
+
+build $builddir/gtest.o: cxx gtest/gtest-all.cc
+build $builddir/main.o: cxx main.cc
+build $builddir/run: link $builddir/gtest.o $
+                          $builddir/main.o
+
+build all: phony $builddir/run
+
+default all
