@@ -23,6 +23,7 @@ plugins:
 
 pagination:
   enabled: true
+  sort_reverse: true
 
 # Permalinks
 permalink:   pretty
