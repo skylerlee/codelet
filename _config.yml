@@ -1,0 +1,28 @@
+---
+title:       Lanyon
+tagline:     'A Jekyll theme'
+description: "A Jekyll theme that based on Mark Otto's Lanyon theme."
+url:         https://github.com/skylerlee/codelet
+
+author:
+  name:      'Skyler Lee'
+  url:       https://github.com/skylerlee
+
+# Custom vars
+version:     2.0.0
+
+github:
+  repo:      https://github.com/skylerlee/codelet
+
+# Dependencies
+markdown:    kramdown
+highlighter: true
+
+plugins:
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+
+# Permalinks
+permalink:   pretty
