@@ -167,6 +167,15 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar-item {
   padding: 1rem;
 }
+.sidebar-item:last-child {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.sidebar-item p {
+  text-align: center;
+}
 .sidebar-item p:last-child {
   margin-bottom: 0;
 }
