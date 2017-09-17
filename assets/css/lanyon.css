@@ -139,6 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
+  border-right: 2px solid #000000;
 }
 @media (min-width: 30rem) {
   .sidebar {
