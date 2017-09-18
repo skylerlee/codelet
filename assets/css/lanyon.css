@@ -194,11 +194,6 @@ a.sidebar-nav-item:focus {
   }
 }
 
-/* Hide the sidebar checkbox that we toggle with `.sidebar-toggle` */
-.sidebar-checkbox {
-  display: none;
-}
-
 /* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
@@ -224,12 +219,6 @@ a.sidebar-nav-item:focus {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.sidebar-toggle:active,
-#sidebar-checkbox:checked ~ .wrap .sidebar-toggle {
-  color: #fff;
-  background-color: #505050;
 }
 
 @media (min-width: 30.1rem) {
@@ -282,14 +271,6 @@ a.sidebar-nav-item:focus {
      -moz-transition: left .3s ease-in-out;
       -ms-transition: left .3s ease-in-out;
           transition: left .3s ease-in-out;
-}
-
-#sidebar-checkbox:checked + .sidebar {
-  left: 0;
-  visibility: visible;
-}
-#sidebar-checkbox:checked ~ .wrap {
-  left: 14rem;
 }
 
 
@@ -413,15 +394,6 @@ a.pagination-item.disabled {
 .layout-reverse .sidebar-toggle {
   left: auto;
   right: 1rem;
-}
-
-.layout-reverse #sidebar-checkbox:checked + .sidebar {
-  left: auto;
-  right: 0;
-}
-.layout-reverse #sidebar-checkbox:checked ~ .wrap {
-  left: auto;
-  right: 14rem;
 }
 
 
