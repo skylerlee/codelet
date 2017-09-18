@@ -96,6 +96,7 @@ h1, h2, h3, h4, h5, h6 {
  */
 
 .masthead {
+  position: relative;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #eee;
 }
@@ -193,25 +194,41 @@ a.sidebar-nav-item:focus {
   }
 }
 
-/* Style the `label` that we use to target the `.sidebar-checkbox` */
 .sidebar-toggle {
   position: absolute;
-  top:  1rem;
+  top:  50%;
   left: 1rem;
-  display: block;
-  width: 2.2rem;
-  padding: .5rem .65rem;
+  width: 44px;
+  height: 35px;
+  margin-top: -18px;
+  padding: 0;
   color: #505050;
   background-color: #fff;
+  border: 1px solid #505050;
   border-radius: 4px;
+  outline: none;
   cursor: pointer;
 }
 
-@media (min-width: 30.1rem) {
-  .sidebar-toggle {
-    position: fixed;
-    width: 2.25rem;
-  }
+.sidebar-toggle .icon-bar {
+  position: absolute;
+  display: block;
+  width: 22px;
+  height: 3px;
+  background-color: #666;
+  border-radius: 1px;
+}
+.sidebar-toggle .icon-bar:nth-child(1) {
+  top:  8px;
+  left: 10px;
+}
+.sidebar-toggle .icon-bar:nth-child(2) {
+  top:  15px;
+  left: 10px;
+}
+.sidebar-toggle .icon-bar:nth-child(3) {
+  top:  22px;
+  left: 10px;
 }
 
 
