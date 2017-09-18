@@ -263,6 +263,13 @@ a.sidebar-nav-item:focus {
           transition: left .3s ease-in-out;
 }
 
+.sidebar-toggle .icon-bar {
+  -webkit-transition: all .6s ease-in-out;
+     -moz-transition: all .6s ease-in-out;
+      -ms-transition: all .6s ease-in-out;
+          transition: all .6s ease-in-out;
+}
+
 
 /*
  * Posts and pages
