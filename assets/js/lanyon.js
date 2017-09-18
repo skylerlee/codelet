@@ -9,8 +9,8 @@
  *                               /\___/
  *                               \/__/
  *
- * Designed, built, and released under MIT license by @skylerlee. Learn more at
- * https://github.com/skylerlee/codelet.
+ * Designed, built, and released under MIT license by @skylerlee.
+ * Learn more at https://github.com/skylerlee/codelet.
  */
 
 (function(exports) {
