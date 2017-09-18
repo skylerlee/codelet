@@ -23,7 +23,6 @@
  * Slide effect
  * Posts and pages
  * Pagination
- * Reverse layout
  */
 
 
@@ -365,30 +364,4 @@ a.pagination-item.disabled {
     float: left;
     width: 50%;
   }
-}
-
-
-/*
- * Reverse layout
- *
- * Flip the orientation of the page by placing the `.sidebar` and sidebar toggle
- * on the right side.
- */
-
-.layout-reverse .wrap,
-.layout-reverse .sidebar-toggle {
-  -webkit-transition-property: right;
-     -moz-transition-property: right;
-      -ms-transition-property: right;
-          transition-property: right;
-}
-
-
-.layout-reverse .sidebar {
-  left: auto;
-  right: -14rem;
-}
-.layout-reverse .sidebar-toggle {
-  left: auto;
-  right: 1rem;
 }
