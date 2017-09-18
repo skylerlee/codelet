@@ -59,14 +59,17 @@
 
 (function() {
   // setup listeners
+  var wrapper = document.getElementById('wrapper');
   var sidebar = document.getElementById('sidebar');
   var toggle = document.getElementById('sidebar-toggle');
   toggle.addEventListener('click', function () {
     $css.toggleClass(toggle, 'active');
     if ($css.hasClass(toggle, 'active')) {
       $css.addClass(sidebar, 'open');
+      $css.addClass(wrapper, 'shift');
     } else {
       $css.removeClass(sidebar, 'open');
+      $css.removeClass(wrapper, 'shift');
     }
   });
 })();

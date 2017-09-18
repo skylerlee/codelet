@@ -65,6 +65,9 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   width: 100%;
 }
+.wrapper.shift {
+  left: 14rem;
+}
 
 
 /*
@@ -132,6 +135,11 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #202020;
   border-right: 2px solid #000000;
 }
+.sidebar.open {
+  left: 0;
+  visibility: visible;
+}
+
 @media (min-width: 30rem) {
   .sidebar {
     font-size: .75rem; /* 14px */
@@ -219,6 +227,13 @@ a.sidebar-nav-item:focus {
 .sidebar-toggle .icon-bar:nth-child(3) {
   top:  22px;
   left: 10px;
+}
+
+.sidebar-toggle.active {
+  background-color: #505050;
+}
+.sidebar-toggle.active .icon-bar {
+  background-color: #fff;
 }
 
 
