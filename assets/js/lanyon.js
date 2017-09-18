@@ -56,3 +56,17 @@
 
   exports.$css = $css;
 })(window);
+
+(function() {
+  // setup listeners
+  var sidebar = document.getElementById('sidebar');
+  var toggle = document.getElementById('sidebar-toggle');
+  toggle.addEventListener('click', function () {
+    $css.toggleClass(toggle, 'active');
+    if ($css.hasClass(toggle, 'active')) {
+      $css.addClass(sidebar, 'open');
+    } else {
+      $css.removeClass(sidebar, 'open');
+    }
+  });
+})();
