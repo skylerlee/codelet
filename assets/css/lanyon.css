@@ -235,6 +235,17 @@ a.sidebar-nav-item:focus {
 .sidebar-toggle.active .icon-bar {
   background-color: #fff;
 }
+.sidebar-toggle.active .icon-bar:nth-child(1) {
+  top: 15px;
+  transform: rotate(-45deg);
+}
+.sidebar-toggle.active .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+.sidebar-toggle.active .icon-bar:nth-child(3) {
+  top: 15px;
+  transform: rotate(45deg);
+}
 
 
 /* Slide effect
