@@ -2,7 +2,6 @@
 <html>
   {% include head.html %}
   <body>
-    {% include sidebar.html %}
     <div class="wrap">
       <div class="masthead">
         <button class="sidebar-toggle" id="sidebar-toggle">
@@ -19,6 +18,7 @@
       </div>
       <div class="container content">{{ content }}</div>
     </div>
+    {% include sidebar.html %}
     {% include foot.html %}
   </body>
 </html>
