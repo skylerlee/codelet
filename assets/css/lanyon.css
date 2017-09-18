@@ -202,7 +202,6 @@ a.sidebar-nav-item:focus {
   height: 35px;
   margin-top: -18px;
   padding: 0;
-  color: #505050;
   background-color: #fff;
   border: 1px solid #505050;
   border-radius: 4px;
@@ -215,7 +214,7 @@ a.sidebar-nav-item:focus {
   display: block;
   width: 22px;
   height: 3px;
-  background-color: #666;
+  background-color: #505050;
   border-radius: 1px;
 }
 .sidebar-toggle .icon-bar:nth-child(1) {
