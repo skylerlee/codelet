@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
  * regular page content.
  */
 
-.wrap {
+.wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -228,13 +228,8 @@ a.sidebar-nav-item:focus {
  * from the default styles.
  */
 
-.sidebar {
-  -webkit-transition: all .3s ease-in-out;
-     -moz-transition: all .3s ease-in-out;
-      -ms-transition: all .3s ease-in-out;
-          transition: all .3s ease-in-out;
-}
-.wrap,
+.wrapper,
+.sidebar,
 .sidebar-toggle {
   -webkit-transition: left .3s ease-in-out;
      -moz-transition: left .3s ease-in-out;
