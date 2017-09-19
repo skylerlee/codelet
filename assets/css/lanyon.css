@@ -255,12 +255,11 @@ a.sidebar-nav-item:focus {
  */
 
 .wrapper,
-.sidebar,
-.sidebar-toggle {
-  -webkit-transition: left .3s ease-in-out;
-     -moz-transition: left .3s ease-in-out;
-      -ms-transition: left .3s ease-in-out;
-          transition: left .3s ease-in-out;
+.sidebar {
+  -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+      -ms-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
 }
 
 .sidebar-toggle .icon-bar {
