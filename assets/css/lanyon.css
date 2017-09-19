@@ -36,10 +36,17 @@
 html,
 body {
   overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 html {
   font-family: "PT Serif", Georgia, "Times New Roman", serif;
+}
+@media (min-width: 48rem) {
+  html {
+    font-size: 18px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -130,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
   visibility: hidden;
   overflow-y: auto;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  font-size: .875rem; /* 15px */
+  font-size: .875rem; /* 14px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
   border-right: 2px solid #000000;
@@ -138,12 +145,6 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar.open {
   left: 0;
   visibility: visible;
-}
-
-@media (min-width: 30rem) {
-  .sidebar {
-    font-size: .75rem; /* 14px */
-  }
 }
 
 /* Sidebar content */
