@@ -133,7 +133,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 14rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
   font-size: .875rem; /* 14px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
@@ -331,11 +330,6 @@ a.sidebar-nav-item:focus {
  * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
  * there are no more previous or next posts to show.
  */
-
-.pagination {
-  overflow: hidden; /* clearfix */
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-}
 
 /* Pagination items can be `span`s or `a`s */
 .pagination-item {
