@@ -39,7 +39,7 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "PingFang SC", "Microsoft YaHei", "Noto Sans", "WenQuanYi Micro Hei", sans-serif;
 }
 @media (min-width: 48rem) {
   html {
@@ -276,7 +276,7 @@ a.sidebar-nav-item:focus {
 .page,
 .post {
   margin-bottom: 4em;
-  font-family: Georgia, Times, "Times New Roman", "Droid Serif", serif;
+  font-family: Georgia, Times, "Times New Roman", "Noto Serif", "Droid Serif", serif;
 }
 
 /* Blog post or page title */
