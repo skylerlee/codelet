@@ -9,7 +9,7 @@ layout: default
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </h1>
     <span class="post-date">{{ post.date | date_to_string }}</span>
-    <p>{{ post.content | strip_html | truncatewords: 50 }}</p>
+    <p>{{ post.content | strip_html | truncate: 300 }}</p>
   </div>
   {% endfor %}
 </div>
