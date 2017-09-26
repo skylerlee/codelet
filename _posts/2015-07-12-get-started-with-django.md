@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 开始使用Django了
+title: 开始使用Django
 date: 2015-07-12 12:40:51 +0800
 tags:
   - tutorial
