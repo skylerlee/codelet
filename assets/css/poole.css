@@ -317,6 +317,11 @@ tbody tr:nth-child(odd) th {
   color: #9a9a9a;
 }
 
+/* Post header */
+.header {
+  margin-bottom: 2rem;
+}
+
 /* Related posts */
 .related {
   padding-top: 2rem;

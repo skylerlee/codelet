@@ -297,6 +297,11 @@ a.sidebar-nav-item:focus {
   text-overflow: ellipsis;
 }
 
+/* Post header */
+.header {
+  border-bottom: 1px solid #eee;
+}
+
 /* Related posts */
 .related {
   padding-top: 1.5rem;
