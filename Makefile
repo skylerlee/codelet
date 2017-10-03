@@ -1,7 +1,7 @@
 BIN = node_modules/.bin
 
 all: build-css build-js
-	@echo "Build complete."
+	@$(BIN)/chalk bold green "✔ Build complete."
 
 build-css:
 	@cat \
@@ -14,5 +14,5 @@ build-js:
 	@$(BIN)/rollup assets/js/lanyon.js \
 		--output.format iife \
 	| $(BIN)/uglifyjs \
-		--compress --mangle --timings \
+		--compress --mangle \
 		-o assets/js/lanyon.min.js
