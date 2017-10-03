@@ -1,4 +1,8 @@
-// minimal dom utils
+/*
+ * minimal dom utils
+ * Designed, built, and released under MIT license by @skylerlee.
+ * Learn more at https://github.com/skylerlee/codelet.
+ */
 
 function _trim(str) {
   return str.replace(/^[\s]+|[\s]+$/g, '');
