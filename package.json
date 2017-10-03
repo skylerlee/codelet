@@ -10,5 +10,9 @@
     "url": "git+https://github.com/skylerlee/codelet.git"
   },
   "author": "Skyler Lee",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cssnano": "^3.10.0",
+    "postcss-cli": "^4.1.1"
+  }
 }
