@@ -23,6 +23,7 @@
  * Slide effect
  * Posts and pages
  * Pagination
+ * Tags
  */
 
 
@@ -339,4 +340,25 @@ a.pagination-item.disabled {
     float: left;
     width: 50%;
   }
+}
+
+
+/*
+ * Tags
+ *
+ * Simple post tag support. Posts are grouped by tag and listed in `.tag-list`.
+ * All tags are available in `.tag-navs` for quick navigation.
+ */
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tagged-post .post-date {
+  float: right;
+  margin: 0;
+}
+
+.tag-navs {
 }
