@@ -312,7 +312,7 @@ a.sidebar-nav-item:focus {
 /*
  * Pagination
  *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+ * Super lightweight (HTML-wise) blog pagination. Disabled is applied for when
  * there are no more previous or next posts to show.
  */
 
