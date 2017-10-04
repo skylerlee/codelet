@@ -1,0 +1,23 @@
+---
+layout: page
+title: Tags
+---
+
+<ul class="tag-list">
+{% for tag in site.data.tags %}
+  {% assign tag_posts = site.tags[tag] %}
+  {% if tag_posts.size > 0 %}
+  <li id="{{ tag }}">
+    <span>{{ tag }}</span>
+    {% for post in tag_posts %}
+    <div class="tagged-post">
+      <h4 class="post-title">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-date">{{ post.date | date_to_string }}</span>
+      </h4>
+    </div>
+    {% endfor %}
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
