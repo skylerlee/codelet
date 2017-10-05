@@ -172,6 +172,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   border-top: 1px solid #3b3b3b;
 }
+a.sidebar-nav-item:focus,
 a.sidebar-nav-item:hover {
   text-decoration: none;
 }
