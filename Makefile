@@ -7,6 +7,7 @@ build-css:
 	@cat \
 		assets/css/poole.css \
 		assets/css/lanyon.css \
+		assets/css/icon.css \
 		assets/css/syntax.css \
 	| $(BIN)/postcss -o assets/css/lanyon.min.css
 

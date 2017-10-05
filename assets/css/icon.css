@@ -1,0 +1,11 @@
+/*
+ * Icon
+ *
+ * Minimal icon element styles.
+ */
+
+.icon {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
