@@ -8,7 +8,10 @@ title: Tags
   {% assign tag_posts = site.tags[tag] %}
   {% if tag_posts.size > 0 %}
   <li id="{{ tag }}">
-    <span>{{ tag }}</span>
+    <h3>
+      <span class="icon">{% include icon.html icon='tag' %}</span>
+      {{ tag }}
+    </h3>
     {% for post in tag_posts %}
     <div class="tagged-post">
       <h4 class="post-title">
