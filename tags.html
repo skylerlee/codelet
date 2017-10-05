@@ -3,6 +3,11 @@ layout: page
 title: Tags
 ---
 
+<ul class="tag-navs">
+{% for tag in site.data.tags %}
+  <li><a href="#{{ tag }}">{{ tag }}</a></li>
+{% endfor %}
+</ul>
 <ul class="tag-list">
 {% for tag in site.data.tags %}
   {% assign tag_posts = site.tags[tag] %}
