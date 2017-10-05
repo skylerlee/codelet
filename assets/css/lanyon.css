@@ -166,15 +166,12 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar-nav {
   border-bottom: 1px solid #3b3b3b;
 }
-.sidebar-nav-item {
+a.sidebar-nav-item {
   display: block;
   padding: .5rem 1rem;
   text-align: center;
-  border-top: 1px solid #3b3b3b;
-}
-a.sidebar-nav-item:focus,
-a.sidebar-nav-item:hover {
   text-decoration: none;
+  border-top: 1px solid #3b3b3b;
 }
 a.sidebar-nav-item.active {
   background-color: #303030;
@@ -360,7 +357,7 @@ a.pagination-item.disabled {
 }
 
 .tagged-posts {
-  list-style-type: disc;
+  list-style: disc;
 }
 .tagged-posts .post-title {
   vertical-align: middle;
