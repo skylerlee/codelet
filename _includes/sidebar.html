@@ -12,10 +12,14 @@
       {% endif %}
     {% endif %}
   {% endfor %}
-    <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub</a>
   </nav>
   <div class="sidebar-item">
-    <p>Code version {{ site.version }}</p>
+    <p>
+      <a href="{{ site.github.repo }}">
+        Powered by
+        <span class="icon">{% include icon.html icon='github' %}</span>
+      </a>
+    </p>
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>
