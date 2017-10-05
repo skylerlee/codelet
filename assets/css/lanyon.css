@@ -355,19 +355,19 @@ a.pagination-item.disabled {
   padding: 0;
 }
 
-.tag-list li+li {
+.tag-list>li+li {
   border-top: 1px solid #eee;
 }
 
-.tagged-post {
-  margin-bottom: 1rem;
+.tagged-posts {
+  list-style-type: disc;
 }
 
-.tagged-post .post-title {
-  margin: 0;
+.tagged-posts .post-title {
+  vertical-align: middle;
 }
 
-.tagged-post .post-date {
+.tagged-posts .post-date {
   float: right;
   margin: 0;
 }

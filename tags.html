@@ -12,14 +12,14 @@ title: Tags
       <span class="icon">{% include icon.html icon='tag' %}</span>
       {{ tag }}
     </h3>
+    <ul class="tagged-posts">
     {% for post in tag_posts %}
-    <div class="tagged-post">
-      <h4 class="post-title">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <li>
+        <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
         <span class="post-date">{{ post.date | date_to_string }}</span>
-      </h4>
-    </div>
+      </li>
     {% endfor %}
+    </ul>
   </li>
   {% endif %}
 {% endfor %}
