@@ -355,7 +355,6 @@ a.pagination-item.disabled {
   list-style: none;
   padding: 0;
 }
-
 .tag-list>li+li {
   border-top: 1px solid #eee;
 }
@@ -363,11 +362,9 @@ a.pagination-item.disabled {
 .tagged-posts {
   list-style-type: disc;
 }
-
 .tagged-posts .post-title {
   vertical-align: middle;
 }
-
 .tagged-posts .post-date {
   float: right;
   margin: 0;
