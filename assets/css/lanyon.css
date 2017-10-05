@@ -355,6 +355,14 @@ a.pagination-item.disabled {
   padding: 0;
 }
 
+.tagged-post {
+  margin-bottom: 0.5rem;
+}
+
+.tagged-post .post-title {
+  margin: 0;
+}
+
 .tagged-post .post-date {
   float: right;
   margin: 0;
