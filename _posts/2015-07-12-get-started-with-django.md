@@ -7,6 +7,7 @@ tags:
   - python
   - backend
 ---
+
 很早就听说了Django框架，在众多的Python Web框架里，Django算是最全面、最稳定的一支了，很适合
 用于网站的快速开发，今天就来学习一下。
 

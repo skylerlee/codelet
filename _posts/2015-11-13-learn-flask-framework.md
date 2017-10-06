@@ -7,6 +7,7 @@ tags:
   - python
   - backend
 ---
+
 最近发现了一个很火的Python Web框架——Flask，在Github上已有10K级的Star，
 (mitsuhiko-flask)[https://github.com/mitsuhiko/flask]——有Python微框架之称。
 
