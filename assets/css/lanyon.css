@@ -352,7 +352,7 @@ a.pagination-item.disabled {
   list-style: none;
   padding: 0;
 }
-.tag-list>li+li {
+.tag-list>li {
   border-top: 1px solid #eee;
 }
 
@@ -368,20 +368,18 @@ a.pagination-item.disabled {
 }
 
 .tag-navs {
-  list-style: none;
-  padding: 0;
+  margin-bottom: 1.5rem;
 }
 .tag-navs:after {
   content: "";
   display: block;
   clear: both;
 }
-.tag-navs li {
+.tag-navs .tag-link {
   float: left;
+  padding: 2px 8px;
   margin: 0.25rem;
-}
-.tag-navs a {
-  padding: 5px 8px;
   background-color: #212121;
   color: #fff;
+  border-radius: 3px;
 }
