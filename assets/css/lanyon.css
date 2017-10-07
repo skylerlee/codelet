@@ -259,10 +259,10 @@ a.sidebar-nav-item.active {
 
 .wrapper,
 .sidebar {
-  -webkit-transition: all .3s ease-in-out;
-     -moz-transition: all .3s ease-in-out;
-       -o-transition: all .3s ease-in-out;
-          transition: all .3s ease-in-out;
+  -webkit-transition: left .3s ease-in-out, visibility .3s ease-in-out;
+     -moz-transition: left .3s ease-in-out, visibility .3s ease-in-out;
+       -o-transition: left .3s ease-in-out, visibility .3s ease-in-out;
+          transition: left .3s ease-in-out, visibility .3s ease-in-out;
 }
 
 .sidebar-toggle .icon-bar {
