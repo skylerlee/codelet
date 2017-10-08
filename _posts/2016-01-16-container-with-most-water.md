@@ -46,6 +46,17 @@ public:
 
 * Two Pointers
 
+\\(area = width * min(left, right)\\) \\
+\\(width\\)的取值可以是 \\([n - 1 .. 1]\\) \\
+假设 \\(left < right\\)，则 \\(area = width * left\\) \\
+当 \\(width = width' - 1\\) 时，\\(area\\)有两种取值：
+
+- \\(area_1 = (width - 1) * min(left, right_2)\\)
+- \\(area_2 = (width - 1) * min(left_2, right)\\)
+
+因为 \\(min(left, right_2) <= left\\)，所以 \\(area_1 < area\\) \\
+只需要比较\\(area, area_2\\)即可
+
 ```cpp
 #include <vector>
 #include <cmath>
