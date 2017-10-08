@@ -17,7 +17,7 @@
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ '/atom.xml' | relative_url }}">
   <!-- JS -->
-  {% if page.layout == 'post' %}
+  {% if page.use_math %}
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   {% endif %}
 </head>
