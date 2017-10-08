@@ -21,13 +21,13 @@ Question
 
 Solution
 --------
+* Brute Force
 
 ```cpp
 #include <vector>
 #include <cmath>
 using namespace std;
 
-// Brute force
 class Solution {
 public:
   int maxArea(vector<int>& height) {
@@ -43,6 +43,8 @@ public:
   }
 };
 ```
+
+* Two Pointers
 
 ```cpp
 #include <vector>
