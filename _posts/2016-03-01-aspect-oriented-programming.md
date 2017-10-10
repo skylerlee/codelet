@@ -4,6 +4,7 @@ title: 面向切面编程
 date: 2016-03-01 20:13:46 +0800
 tags:
   - coding
+  - programming-paradigm
 ---
 
 面向切面编程（aspect-oriented programming，AOP）也叫面向方面编程，面向侧面编程，剖面导向编程，
