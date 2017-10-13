@@ -5,6 +5,7 @@ all: build-css build-js
 
 build-css:
 	@cat \
+		assets/css/normalize.css \
 		assets/css/poole.css \
 		assets/css/lanyon.css \
 		assets/css/icon.css \
