@@ -12,7 +12,7 @@ gulp.task 'build-css', ->
   gulp.src './src/style/index.css'
   .pipe rename('lanyon.min.css')
   .pipe postcss([
-    atImport(),
+    atImport()
     cssnano()
   ])
   .pipe gulp.dest('./assets/css')
