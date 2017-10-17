@@ -1687,9 +1687,15 @@ resolve@~1.1.6:
   version "1.1.7"
   resolved "http://registry.npm.taobao.org/resolve/download/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-rollup@^0.50.0:
-  version "0.50.0"
-  resolved "http://registry.npm.taobao.org/rollup/download/rollup-0.50.0.tgz#4c158f4e780e6cb33ff0dbfc184a52cc58cd5f3b"
+rollup-stream@^1.24.1:
+  version "1.24.1"
+  resolved "http://registry.npm.taobao.org/rollup-stream/download/rollup-stream-1.24.1.tgz#9bc002afba51c517e6daa3e17f9559580a460f89"
+  dependencies:
+    rollup "^0.49.2"
+
+rollup@^0.49.2:
+  version "0.49.3"
+  resolved "http://registry.npm.taobao.org/rollup/download/rollup-0.49.3.tgz#4cce32643dd8cf2154c69ff0e43470067db0adbf"
 
 safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
