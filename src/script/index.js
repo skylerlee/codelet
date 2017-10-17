@@ -1,1 +1,1 @@
-require('./lanyon');
+import './lanyon';
