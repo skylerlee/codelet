@@ -83,6 +83,12 @@ beeper@^1.0.0:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/beeper/download/beeper-1.1.1.tgz#e6d5ea8c5dad001304a70b22638447f69cb2f809"
 
+bl@^0.9.1:
+  version "0.9.5"
+  resolved "http://registry.npm.taobao.org/bl/download/bl-0.9.5.tgz#c06b797af085ea00bc527afc8efcf11de2232054"
+  dependencies:
+    readable-stream "~1.0.26"
+
 boom@2.x.x:
   version "2.10.1"
   resolved "http://registry.npm.taobao.org/boom/download/boom-2.10.1.tgz#39c8918ceff5799f83f9492a848f625add0c766f"
@@ -1637,7 +1643,7 @@ read-cache@^1.0.0:
   dependencies:
     pify "^2.3.0"
 
-"readable-stream@>=1.0.33-1 <1.1.0-0":
+"readable-stream@>=1.0.33-1 <1.1.0-0", readable-stream@~1.0.26:
   version "1.0.34"
   resolved "http://registry.npm.taobao.org/readable-stream/download/readable-stream-1.0.34.tgz#125820e34bc842d2f2aaafafe4c2916ee32c157c"
   dependencies:
@@ -1936,6 +1942,13 @@ v8flags@^2.0.2, v8flags@^2.0.9:
 vendors@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/vendors/download/vendors-1.0.1.tgz#37ad73c8ee417fb3d580e785312307d274847f22"
+
+vinyl-buffer@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/vinyl-buffer/download/vinyl-buffer-1.0.0.tgz#ca067ea08431d507722b1de5083f602616ebc234"
+  dependencies:
+    bl "^0.9.1"
+    through2 "^0.6.1"
 
 vinyl-fs@^0.3.0:
   version "0.3.14"
