@@ -3,6 +3,8 @@ rename = require 'gulp-rename'
 postcss = require 'gulp-postcss'
 atImport = require 'postcss-import'
 cssnano = require 'cssnano'
+rollup = require 'rollup-stream'
+source = require 'vinyl-source-stream'
 
 gulp.task 'default', ['build-js', 'build-css']
 
@@ -16,4 +18,9 @@ gulp.task 'build-css', ->
   .pipe gulp.dest('./assets/css')
 
 gulp.task 'build-js', ->
-  console.log 'Build js'
+  rollup
+    input: './src/script/index.js'
+    format: 'iife'
+  .pipe source('index.js')
+  .pipe rename('lanyon.min.js')
+  .pipe gulp.dest('./assets/js')
