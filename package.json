@@ -12,6 +12,7 @@
   "author": "Skyler Lee",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^7.1.5",
     "coffeescript": "^2.0.1",
     "cssnano": "^3.10.0",
     "gulp": "^3.9.1",
