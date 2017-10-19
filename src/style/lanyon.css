@@ -232,22 +232,14 @@ a.sidebar-nav-item.active {
 }
 .sidebar-toggle.active .icon-bar:nth-child(1) {
   top: 15px;
-  -webkit-transform: rotate(45deg);
-     -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .sidebar-toggle.active .icon-bar:nth-child(2) {
   opacity: 0;
 }
 .sidebar-toggle.active .icon-bar:nth-child(3) {
   top: 15px;
-  -webkit-transform: rotate(45deg);
-     -moz-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 
@@ -259,17 +251,11 @@ a.sidebar-nav-item.active {
 
 .wrapper,
 .sidebar {
-  -webkit-transition: left .3s ease-in-out, visibility .3s ease-in-out;
-     -moz-transition: left .3s ease-in-out, visibility .3s ease-in-out;
-       -o-transition: left .3s ease-in-out, visibility .3s ease-in-out;
-          transition: left .3s ease-in-out, visibility .3s ease-in-out;
+  transition: left .3s ease-in-out, visibility .3s ease-in-out;
 }
 
 .sidebar-toggle .icon-bar {
-  -webkit-transition: all .6s ease-in-out;
-     -moz-transition: all .6s ease-in-out;
-       -o-transition: all .6s ease-in-out;
-          transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
 }
 
 
