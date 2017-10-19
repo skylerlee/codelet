@@ -2,6 +2,7 @@ gulp = require 'gulp'
 rename = require 'gulp-rename'
 postcss = require 'gulp-postcss'
 atImport = require 'postcss-import'
+autoprefixer = require 'autoprefixer'
 cssnano = require 'cssnano'
 pump = require 'pump'
 rollup = require 'rollup-stream'
@@ -16,6 +17,11 @@ gulp.task 'build-css', ->
   .pipe rename('lanyon.min.css')
   .pipe postcss([
     atImport()
+    autoprefixer
+      browsers: [
+        '> 0.1%'
+        'not ie <= 8'
+      ]
     cssnano()
   ])
   .pipe gulp.dest('./assets/css')
