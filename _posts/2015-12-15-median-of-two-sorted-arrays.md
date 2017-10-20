@@ -6,7 +6,8 @@ tags:
   - algorithm
   - OJ
   - leetcode
-use_math: true
+use_require: true
+require_math: true
 ---
 
 Question
