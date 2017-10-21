@@ -31,18 +31,21 @@ function removeHandler(uid, event, fn) {
     if (fn !== undefined) {
       handlers.forEach(function (handler, index) {
         if (handler.event === event && handler.fn === fn) {
-          handlers.splice(index, 1);
           result.push(handler);
         }
       });
-    } else { // remove all handlers
+    } else {
       handlers.forEach(function (handler, index) {
         if (handler.event === event) {
-          handlers.splice(index, 1);
           result.push(handler);
         }
       });
     }
+    // remove handlers
+    result.forEach(function (handler) {
+      var i = handlers.indexOf(handler);
+      handlers.splice(i, 1);
+    });
     return result;
   }
 }
@@ -55,9 +58,11 @@ function on(el, event, fn) {
 
 function off(el, event, fn) {
   var handlers = removeHandler(el._uid_, event, fn);
-  handlers.forEach(function (handler) {
-    el.removeEventListener(handler.event, handler.fn);
-  });
+  if (handlers) {
+    handlers.forEach(function (handler) {
+      el.removeEventListener(handler.event, handler.fn);
+    });
+  }
 }
 
 function _trim(str) {
