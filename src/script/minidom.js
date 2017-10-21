@@ -14,6 +14,22 @@ function getUID(el) {
   return el._uid_;
 }
 
+function addHandler(uid, event, fn) {
+  if (!handlerMap[uid]) {
+    handlerMap[uid] = [];
+  }
+  handlerMap[uid].push({
+    event: event,
+    fn: fn
+  });
+}
+
+function on(el, event, fn) {
+  el.addEventListener(event, fn);
+  var uid = getUID(el);
+  addHandler(uid, event, fn);
+}
+
 function _trim(str) {
   return str.replace(/^[\s]+|[\s]+$/g, '');
 }
