@@ -32,19 +32,15 @@ function removeHandler(uid, event, fn) {
   var handlers = handlerMap[uid];
   if (handlers) {
     var result = [];
-    if (fn !== undefined) {
-      handlers.forEach(function (handler, index) {
-        if (handler.event === event && handler.fn === fn) {
+    handlers.forEach(function (handler) {
+      if (handler.event === event) {
+        if (fn === undefined) {
+          result.push(handler);
+        } else if (handler.fn === fn) {
           result.push(handler);
         }
-      });
-    } else {
-      handlers.forEach(function (handler, index) {
-        if (handler.event === event) {
-          result.push(handler);
-        }
-      });
-    }
+      }
+    });
     // remove handlers
     result.forEach(function (handler) {
       var i = handlers.indexOf(handler);
