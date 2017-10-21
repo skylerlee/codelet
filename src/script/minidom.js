@@ -7,6 +7,10 @@
 var handlerMap = {};
 var uidCount = 1000;
 
+/*
+ * Event utils
+ */
+
 function getUID(el) {
   if (!el._uid_) {
     el._uid_ = uidCount++;
@@ -64,6 +68,10 @@ function off(el, event, fn) {
     });
   }
 }
+
+/*
+ * ClassName utils
+ */
 
 function _trim(str) {
   return str.replace(/^[\s]+|[\s]+$/g, '');
