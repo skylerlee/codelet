@@ -6,3 +6,8 @@
   require(['{{ site.data.urls.mathjax }}']);
 </script>
 {% endif %}
+{% if page.page_script %}
+<script>
+  {{ page.page_script }}
+</script>
+{% endif %}
