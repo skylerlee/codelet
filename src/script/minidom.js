@@ -24,10 +24,40 @@ function addHandler(uid, event, fn) {
   });
 }
 
+function removeHandler(uid, event, fn) {
+  var handlers = handlerMap[uid];
+  if (handlers) {
+    var result = [];
+    if (fn !== undefined) {
+      handlers.forEach(function (handler, index) {
+        if (handler.event === event && handler.fn === fn) {
+          handlers.splice(index, 1);
+          result.push(handler);
+        }
+      });
+    } else { // remove all handlers
+      handlers.forEach(function (handler, index) {
+        if (handler.event === event) {
+          handlers.splice(index, 1);
+          result.push(handler);
+        }
+      });
+    }
+    return result;
+  }
+}
+
 function on(el, event, fn) {
   el.addEventListener(event, fn);
   var uid = getUID(el);
   addHandler(uid, event, fn);
+}
+
+function off(el, event, fn) {
+  var handlers = removeHandler(el._uid_, event, fn);
+  handlers.forEach(function (handler) {
+    el.removeEventListener(handler.event, handler.fn);
+  });
 }
 
 function _trim(str) {
