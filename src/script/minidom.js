@@ -4,6 +4,16 @@
  * Learn more at https://github.com/skylerlee/codelet.
  */
 
+var handlerMap = {};
+var uidCount = 1000;
+
+function getUID(el) {
+  if (!el._uid_) {
+    el._uid_ = uidCount++;
+  }
+  return el._uid_;
+}
+
 function _trim(str) {
   return str.replace(/^[\s]+|[\s]+$/g, '');
 }
