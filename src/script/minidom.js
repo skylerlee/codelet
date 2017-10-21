@@ -106,6 +106,8 @@ function toggleClass(el, clz) {
 }
 
 export {
+  on,
+  off,
   hasClass,
   addClass,
   removeClass,
