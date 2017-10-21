@@ -3,11 +3,11 @@
 {% endif %}
 {% if page.require_math %}
 <script>
-  require(['{{ site.data.urls.mathjax }}']);
+  {% include js/require_math.js %}
 </script>
 {% endif %}
 {% if page.page_script %}
 <script>
-  {{ page.page_script }}
+  {% include js/{{ page.page_script }}.js %}
 </script>
 {% endif %}
