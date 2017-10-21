@@ -19,7 +19,8 @@ import * as dom from './minidom';
 var wrapper = document.getElementById('wrapper');
 var sidebar = document.getElementById('sidebar');
 var toggle = document.getElementById('sidebar-toggle');
-toggle.addEventListener('click', function () {
+
+dom.on(toggle, 'click', function () {
   dom.toggleClass(toggle, 'active');
   if (dom.hasClass(toggle, 'active')) {
     dom.addClass(sidebar, 'open');
