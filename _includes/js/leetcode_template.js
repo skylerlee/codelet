@@ -6,7 +6,10 @@ require.config({
 
 require([
   'ace/ace',
-  'ace/theme-monokai'
+  'ace/theme-monokai',
+  'ace/mode-json',
+  'ace/mode-markdown',
+  'ace/worker-json'
 ], function (ace) {
   var srcBox = ace.edit('src-box');
   var outBox = ace.edit('out-box');
@@ -18,4 +21,22 @@ require([
     '  margin-bottom: 1rem;\n' +
     '}'
   );
+
+  init(srcBox, {
+    mode: 'json'
+  });
+  init(outBox, {
+    mode: 'markdown'
+  });
+
+  function init(editor, options) {
+    options = options || {};
+    editor.setTheme('ace/theme/monokai');
+    if (options.value) {
+      editor.setValue(options.value);
+    }
+    if (options.mode) {
+      editor.getSession().setMode('ace/mode/' + options.mode);
+    }
+  }
 });
