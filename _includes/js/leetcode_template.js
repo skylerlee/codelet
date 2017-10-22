@@ -32,6 +32,7 @@ require([
   function init(editor, options) {
     options = options || {};
     editor.setTheme('ace/theme/monokai');
+    editor.getSession().setTabSize(2);
     if (options.value) {
       editor.setValue(options.value);
     }
