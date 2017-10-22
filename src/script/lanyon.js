@@ -30,3 +30,10 @@ dom.on(toggle, 'click', function () {
     dom.removeClass(wrapper, 'shift');
   }
 });
+
+window.loadCSS = function (url) {
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
+  document.head.appendChild(link);
+};
