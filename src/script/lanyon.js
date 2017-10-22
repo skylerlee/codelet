@@ -37,3 +37,9 @@ window.loadCSS = function (url) {
   link.href = url;
   document.head.appendChild(link);
 };
+
+window.appendStyle = function (text) {
+  var style = document.createElement('style');
+  style.innerHTML = text;
+  document.head.appendChild(style);
+};
