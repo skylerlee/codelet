@@ -5,12 +5,11 @@ require.config({
 });
 
 require([
-  'ace/ace',
-  'ace/theme-monokai',
-  'ace/mode-json',
-  'ace/mode-markdown',
-  'ace/worker-json'
+  'ace/ace'
 ], function (ace) {
+  ace.config.set('packaged', true);
+  ace.config.set('basePath', '{{ site.data.urls.ace }}');
+
   var srcBox = ace.edit('src-box');
   var outBox = ace.edit('out-box');
 
