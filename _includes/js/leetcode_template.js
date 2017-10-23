@@ -1,6 +1,6 @@
 require.config({
   paths: {
-    ace: '{{ site.data.urls.ace }}'
+    ace: '{{ site.data.urls.ace-root }}'
   }
 });
 
@@ -8,7 +8,7 @@ require([
   'ace/ace'
 ], function (ace) {
   ace.config.set('packaged', true);
-  ace.config.set('basePath', '{{ site.data.urls.ace }}');
+  ace.config.set('basePath', '{{ site.data.urls.ace-root }}');
 
   var srcBox = ace.edit('src-box');
   var outBox = ace.edit('out-box');

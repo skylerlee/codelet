@@ -2,5 +2,5 @@ requirejs:
   https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js
 mathjax:
   https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML
-ace:
+ace-root:
   https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9
