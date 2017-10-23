@@ -10,4 +10,13 @@ page_script: leetcode_template
 ---
 
 <div class="ace-editor" id="src-box"></div>
-<div class="ace-editor" id="out-box"></div>
+<div class="ace-editor" id="out-box">
+Question
+--------
+
+Solution
+--------
+
+```cpp
+```
+</div>
