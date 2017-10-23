@@ -34,6 +34,16 @@ require([
   var template = outBox.getValue();
   mustache.parse(template);
 
+  srcBox.on('change', function () {
+    try {
+      var context = JSON.parse(srcBox.getValue());
+      var output = mustache.render(template, context);
+      outBox.setValue(output);
+    } catch (e) {
+      // omit error
+    }
+  });
+
   function init(editor, options) {
     options = options || {};
     editor.setTheme('ace/theme/monokai');
