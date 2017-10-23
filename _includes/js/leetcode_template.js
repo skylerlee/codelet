@@ -24,7 +24,8 @@ require([
   );
 
   init(srcBox, {
-    mode: 'json'
+    mode: 'json',
+    value: '{ "name": "Problem Name" }'
   });
   init(outBox, {
     mode: 'markdown'
