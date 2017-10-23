@@ -9,6 +9,8 @@ use_require: true
 page_script: leetcode_template
 ---
 
+Generate a leetcode post from template.
+
 ## Data
 
 <div class="ace-editor" id="src-box">{
