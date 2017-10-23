@@ -30,6 +30,9 @@ require([
     mode: 'markdown'
   });
 
+  var source = preproc(srcBox.getValue());
+  srcBox.setValue(source);
+
   var template = outBox.getValue();
   mustache.parse(template);
 
@@ -53,5 +56,9 @@ require([
     if (options.mode) {
       editor.getSession().setMode('ace/mode/' + options.mode);
     }
+  }
+
+  function preproc(str) {
+    return str.replace('%t', Date.format('%4Y-%2M-%2D %2h:%2m:%2s %z'));
   }
 });
