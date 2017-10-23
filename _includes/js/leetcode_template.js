@@ -18,7 +18,7 @@ require([
   appendStyle(
     '.ace-editor {\n' +
     '  font-size: 16px;\n' +
-    '  height: 300px;\n' +
+    '  height: 22em;\n' +
     '  margin-bottom: 1rem;\n' +
     '}'
   );
