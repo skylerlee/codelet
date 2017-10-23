@@ -10,7 +10,16 @@ page_script: leetcode_template
 ---
 
 <div class="ace-editor" id="src-box"></div>
-<div class="ace-editor" id="out-box">{% raw %}
+<div class="ace-editor" id="out-box">{% raw %}---
+layout: post
+title: {{ name }}
+date: {{ time }}
+tags:
+  - algorithm
+  - OJ
+  - leetcode
+---
+
 Question
 --------
 
