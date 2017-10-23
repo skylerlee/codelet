@@ -4,3 +4,5 @@ mathjax:
   https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML
 ace-root:
   https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9
+mustache:
+  https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min

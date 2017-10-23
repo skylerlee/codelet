@@ -1,12 +1,14 @@
 require.config({
   paths: {
-    ace: '{{ site.data.urls.ace-root }}'
+    ace: '{{ site.data.urls.ace-root }}',
+    mustache: '{{ site.data.urls.mustache }}'
   }
 });
 
 require([
-  'ace/ace'
-], function (ace) {
+  'ace/ace',
+  'mustache'
+], function (ace, mustache) {
   ace.config.set('packaged', true);
   ace.config.set('basePath', '{{ site.data.urls.ace-root }}');
 
