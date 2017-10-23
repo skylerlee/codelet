@@ -9,11 +9,16 @@ use_require: true
 page_script: leetcode_template
 ---
 
+## Data
+
 <div class="ace-editor" id="src-box">{
-  "name": "Problem Name",
+  "name": "Problem",
   "time": "%t"
 }
 </div>
+
+## Result
+
 <div class="ace-editor" id="out-box">{% raw %}{{ fullname }}.md
 ---
 layout: post
