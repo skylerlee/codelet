@@ -57,6 +57,22 @@ function _getPad(str, width) {
   return pad;
 }
 
+function _getTimezone(date) {
+  var str = '';
+  var offset = date.getTimezoneOffset();
+  if (offset <= 0) {
+    str += '+';
+  } else {
+    str += '-';
+  }
+  offset = Math.abs(offset);
+  var h = '' + Math.floor(offset / 60);
+  var m = '' + (offset % 60);
+  str = str + _getPad(h, 2) + h;
+  str = str + _getPad(m, 2) + m;
+  return str;
+}
+
 window.Date.format = function (str) {
   var datetime = new Date();
   var ctx = {
@@ -65,9 +81,10 @@ window.Date.format = function (str) {
     D: '' + datetime.getDate(),
     h: '' + datetime.getHours(),
     m: '' + datetime.getMinutes(),
-    s: '' + datetime.getSeconds()
+    s: '' + datetime.getSeconds(),
+    z: '' + _getTimezone(datetime)
   };
-  return str.replace(/%(\d*)([YMDhms])/g, function (mat, digit, key) {
+  return str.replace(/%(\d*)([YMDhmsz])/g, function (mat, digit, key) {
     var value = ctx[key];
     if (digit !== '') {
       var width = parseInt(digit);
