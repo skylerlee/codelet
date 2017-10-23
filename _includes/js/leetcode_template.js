@@ -31,6 +31,9 @@ require([
     mode: 'markdown'
   });
 
+  var template = outBox.getValue();
+  mustache.parse(template);
+
   function init(editor, options) {
     options = options || {};
     editor.setTheme('ace/theme/monokai');
