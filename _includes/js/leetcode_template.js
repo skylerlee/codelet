@@ -39,6 +39,7 @@ require([
   srcBox.on('change', function () {
     try {
       var context = JSON.parse(srcBox.getValue());
+      postproc(context);
       var output = mustache.render(template, context);
       outBox.setValue(output);
     } catch (e) {
@@ -60,5 +61,10 @@ require([
 
   function preproc(str) {
     return str.replace('%t', Date.format('%4Y-%2M-%2D %2h:%2m:%2s %z'));
+  }
+
+  function postproc(data) {
+    var dashedName = data.name.toLowerCase().replace(/\s/g, '-');
+    data.fullname = data.time.substr(0, 10) + '-' + dashedName;
   }
 });
