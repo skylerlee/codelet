@@ -61,7 +61,7 @@ window.Date.format = function (str) {
   var datetime = new Date();
   var ctx = {
     Y: '' + datetime.getFullYear(),
-    M: '' + datetime.getMonth() + 1,
+    M: '' + (datetime.getMonth() + 1),
     D: '' + datetime.getDate(),
     h: '' + datetime.getHours(),
     m: '' + datetime.getMinutes(),
