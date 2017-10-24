@@ -60,7 +60,7 @@ require([
   }
 
   function preproc(str) {
-    return str.replace('%t', Date.format('%4Y-%2M-%2D %2h:%2m:%2s %z'));
+    return str.replace('%t', dateFormat('%4Y-%2M-%2D %2h:%2m:%2s %z'));
   }
 
   function postproc(data) {

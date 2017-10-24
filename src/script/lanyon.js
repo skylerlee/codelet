@@ -73,7 +73,7 @@ function _getTimezone(date) {
   return str;
 }
 
-window.Date.format = function (str) {
+window.dateFormat = function (str) {
   var datetime = new Date();
   var ctx = {
     Y: '' + datetime.getFullYear(),
