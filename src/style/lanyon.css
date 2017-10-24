@@ -13,6 +13,10 @@
  * Learn more at https://github.com/skylerlee/codelet.
  */
 
+@import "normalize.css";
+@import "poole.css";
+@import "icon.css";
+@import "syntax.css";
 
 /*
  * Contents

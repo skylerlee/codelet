@@ -13,7 +13,7 @@ uglify = require 'gulp-uglify'
 gulp.task 'default', ['build-utils', 'build-js', 'build-css']
 
 gulp.task 'build-css', ->
-  gulp.src './src/style/index.css'
+  gulp.src './src/style/lanyon.css'
   .pipe rename('lanyon.min.css')
   .pipe postcss([
     atImport()
