@@ -10,7 +10,7 @@ source = require 'vinyl-source-stream'
 buffer = require 'vinyl-buffer'
 uglify = require 'gulp-uglify'
 
-gulp.task 'default', ['build-js', 'build-css']
+gulp.task 'default', ['build-utils', 'build-js', 'build-css']
 
 gulp.task 'build-css', ->
   gulp.src './src/style/index.css'
@@ -34,6 +34,19 @@ gulp.task 'build-js', (cb) ->
     source('index.js')
     buffer()
     rename('lanyon.min.js')
+    uglify()
+    gulp.dest('./assets/js')
+  ], cb)
+  return
+
+gulp.task 'build-utils', (cb) ->
+  pump([
+    rollup
+      input: './src/script/utils.js'
+      format: 'amd'
+    source('utils.js')
+    buffer()
+    rename('utils.min.js')
     uglify()
     gulp.dest('./assets/js')
   ], cb)
