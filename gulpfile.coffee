@@ -29,9 +29,9 @@ gulp.task 'build-css', ->
 gulp.task 'build-js', (cb) ->
   pump([
     rollup
-      input: './src/script/index.js'
+      input: './src/script/lanyon.js'
       format: 'iife'
-    source('index.js')
+    source('lanyon.js')
     buffer()
     rename('lanyon.min.js')
     uglify()
