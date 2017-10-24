@@ -89,7 +89,7 @@ window.Date.format = function (str) {
     if (digit !== '') {
       var width = parseInt(digit);
       if (width < value.length) {
-        return value.substr(0, width);
+        return value.substr(value.length - width, width);
       } else {
         return _getPad(value, width) + value;
       }
