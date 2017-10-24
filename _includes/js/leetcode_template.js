@@ -1,14 +1,16 @@
 require.config({
   paths: {
+    utils: '{{ "/assets/js/utils.min" | relative_url }}',
     ace: '{{ site.data.urls.ace-root }}',
     mustache: '{{ site.data.urls.mustache }}'
   }
 });
 
 require([
+  'utils',
   'ace/ace',
   'mustache'
-], function (ace, mustache) {
+], function (utils, ace, mustache) {
   ace.config.set('packaged', true);
   ace.config.set('basePath', '{{ site.data.urls.ace-root }}');
 
