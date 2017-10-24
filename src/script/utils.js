@@ -67,7 +67,7 @@ function formatDate(str) {
 }
 
 export default {
-  loadCSS,
-  appendStyle,
-  formatDate
+  loadCSS: loadCSS,
+  appendStyle: appendStyle,
+  formatDate: formatDate
 };
