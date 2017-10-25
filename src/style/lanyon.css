@@ -109,8 +109,7 @@ ul, ol {
 
 /* Misc */
 hr {
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #eee;
   margin: 1.5rem 0;
 }
 
@@ -126,8 +125,8 @@ abbr[title] {
 
 img {
   display: block;
-  margin: 0 0 1rem;
-  border-radius: 5px;
+  margin-bottom: 1rem;
+  border-radius: 3px;
 }
 
 /* Code */
@@ -182,16 +181,15 @@ blockquote p:last-child {
 @media (min-width: 480px) {
   blockquote {
     padding-right: 5rem;
-    padding-left: 1.25rem;
   }
 }
 
 /* Tables */
 table {
-  margin-bottom: 1rem;
   width: 100%;
   border: 1px solid #e5e5e5;
   border-collapse: collapse;
+  margin-bottom: 1rem;
 }
 td,
 th {
@@ -347,9 +345,6 @@ tbody tr:nth-child(odd) th {
   left: 0;
   bottom: 0;
   width: 100%;
-}
-.sidebar-item p:last-child {
-  margin-bottom: 0;
 }
 @media (min-width: 768px) {
   .sidebar-item {
