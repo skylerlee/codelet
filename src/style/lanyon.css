@@ -72,8 +72,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   line-height: 1.25;
   color: #303030;
-  letter-spacing: -.025rem;
-  text-rendering: optimizeLegibility;
   margin-bottom: .5rem;
 }
 
@@ -214,7 +212,6 @@ tbody tr:nth-child(odd) th {
 
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
 }
 
 
@@ -296,9 +293,7 @@ tbody tr:nth-child(odd) th {
 }
 .masthead-title small {
   font-size: 75%;
-  font-weight: 400;
   color: #c0c0c0;
-  letter-spacing: 0;
 }
 @media (max-width: 768px) {
   .masthead-title {
@@ -338,7 +333,6 @@ tbody tr:nth-child(odd) th {
 
 /* Sidebar content */
 .sidebar a {
-  font-weight: normal;
   color: #fff;
 }
 .sidebar-item {
@@ -551,7 +545,7 @@ tbody tr:nth-child(odd) th {
 /* Pagination items can be `span`s or `a`s */
 .pagination-item {
   display: block;
-  padding: 0.5rem;
+  padding: .5rem;
   border: 1px solid #eee;
 }
 
@@ -613,7 +607,7 @@ tbody tr:nth-child(odd) th {
 .tag-navs .tag-link {
   float: left;
   padding: 2px 8px;
-  margin: 0.25rem;
+  margin: .25rem;
   background-color: #212121;
   color: #fff;
   border-radius: 3px;
