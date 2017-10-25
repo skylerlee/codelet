@@ -14,7 +14,6 @@
  */
 
 @import "normalize.css";
-@import "icon.css";
 @import "syntax.css";
 
 /*
@@ -28,6 +27,7 @@
  * Slide effect
  * Posts and pages
  * Pagination
+ * Icon
  * Tags
  */
 
@@ -538,6 +538,19 @@ tbody tr:nth-child(odd) {
     float: left;
     width: 50%;
   }
+}
+
+
+/*
+ * Icon
+ *
+ * Minimal icon element styles.
+ */
+
+.icon {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 
