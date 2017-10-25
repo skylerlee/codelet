@@ -462,7 +462,7 @@ tbody tr:nth-child(odd) th {
 .page,
 .post {
   color: #303030;
-  margin-bottom: 3em;
+  margin-bottom: 3rem;
 }
 
 /* Blog post or page title */
