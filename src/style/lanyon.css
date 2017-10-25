@@ -332,9 +332,12 @@ tbody tr:nth-child(odd) th {
 }
 
 /* Sidebar content */
-.sidebar a {
+.sidebar-brand {
+  display: block;
   color: #fff;
+  margin-bottom: 1rem;
 }
+
 .sidebar-item {
   padding: 1rem;
   text-align: center;
@@ -363,6 +366,7 @@ tbody tr:nth-child(odd) th {
   padding: .5rem 1rem;
   text-align: center;
   text-decoration: none;
+  color: #fff;
   border-top: 1px solid #3c3c3c;
 }
 .sidebar-nav-item.active {
@@ -376,6 +380,7 @@ tbody tr:nth-child(odd) th {
   }
 }
 
+/* Sidebar toggle */
 .sidebar-toggle {
   position: absolute;
   top:  50%;
