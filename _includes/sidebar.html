@@ -1,6 +1,6 @@
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>{{ site.description }}</p>
+    <span>{{ site.description }}</span>
   </div>
   <nav class="sidebar-nav">
     <a class="sidebar-nav-item{% if page.title == "Home" %} active{% endif %}" href="{{ site.url }}">Home</a>
@@ -14,12 +14,10 @@
   {% endfor %}
   </nav>
   <div class="sidebar-item">
-    <p>
-      <a href="{{ site.github.repo }}">
-        Powered by
-        <span class="icon">{% include icon.html icon='github' %}</span>
-      </a>
-    </p>
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+    <a href="{{ site.github.repo }}">
+      Powered by
+      <span class="icon">{% include icon.html icon='github' %}</span>
+    </a>
+    <span>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</span>
   </div>
 </div>
