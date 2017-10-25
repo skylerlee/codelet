@@ -137,8 +137,8 @@ pre {
 code {
   padding: .25em .5em;
   font-size: 85%;
-  color: #bf616a;
   background-color: #f8f8f8;
+  color: #bd4147;
   border-radius: 3px;
 }
 pre {
@@ -196,8 +196,7 @@ th {
   padding: .25rem .5rem;
   border: 1px solid #e5e5e5;
 }
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(odd) th {
+tbody tr:nth-child(odd) {
   background-color: #f8f8f8;
 }
 
