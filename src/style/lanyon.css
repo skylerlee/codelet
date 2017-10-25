@@ -141,7 +141,7 @@ code {
   padding: .25em .5em;
   font-size: 85%;
   color: #bf616a;
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
   border-radius: 3px;
 }
 pre {
@@ -155,7 +155,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
 }
 pre code {
   padding: 0;
@@ -175,7 +175,7 @@ pre code {
 blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: #7a7a7a;
+  color: #727272;
   border-left: .25rem solid #e5e5e5;
 }
 blockquote p:last-child {
@@ -202,7 +202,7 @@ th {
 }
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: #f8f8f8;
 }
 
 
@@ -228,8 +228,8 @@ tbody tr:nth-child(odd) th {
 .message {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
+  color: #727272;
+  background-color: #f8f8f8;
 }
 
 
@@ -327,7 +327,7 @@ tbody tr:nth-child(odd) th {
   visibility: hidden;
   overflow-y: auto;
   font-size: .875rem; /* 14px */
-  color: #959595;
+  color: #969696;
   background-color: #212121;
   border-right: 2px solid #000000;
 }
@@ -362,14 +362,14 @@ tbody tr:nth-child(odd) th {
 
 /* Sidebar nav */
 .sidebar-nav {
-  border-bottom: 1px solid #3b3b3b;
+  border-bottom: 1px solid #3c3c3c;
 }
 .sidebar-nav-item {
   display: block;
   padding: .5rem 1rem;
   text-align: center;
   text-decoration: none;
-  border-top: 1px solid #3b3b3b;
+  border-top: 1px solid #3c3c3c;
 }
 .sidebar-nav-item.active {
   background-color: #303030;
@@ -482,7 +482,7 @@ tbody tr:nth-child(odd) th {
   display: block;
   margin-top: -.5rem;
   margin-bottom: 1rem;
-  color: #9a9a9a;
+  color: #969696;
 }
 
 /* Post body */
@@ -518,7 +518,7 @@ tbody tr:nth-child(odd) th {
 }
 .related-posts li small {
   font-size: 75%;
-  color: #999;
+  color: #969696;
 }
 .related-posts li a:hover {
   color: #268bd2;
