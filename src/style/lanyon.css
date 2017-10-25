@@ -21,7 +21,6 @@
  * Contents
  *
  * Global resets
- * Messages
  * Wrapper
  * Container
  * Masthead
@@ -196,21 +195,6 @@ th {
   border: 1px solid #e5e5e5;
 }
 tbody tr:nth-child(odd) {
-  background-color: #f8f8f8;
-}
-
-
-/*
- * Messages
- *
- * Show alert messages to users. You may add it to single elements like a `<p>`,
- * or to a parent if there are multiple elements to show.
- */
-
-.message {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  color: #727272;
   background-color: #f8f8f8;
 }
 
@@ -541,7 +525,7 @@ tbody tr:nth-child(odd) {
   background-color: #f5f5f5;
 }
 .pagination-item.disabled {
-  color: #9a9a9a;
+  color: #969696;
   cursor: not-allowed;
 }
 
