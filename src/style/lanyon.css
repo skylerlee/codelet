@@ -261,7 +261,6 @@ tbody tr:nth-child(odd) th {
   max-width: 28rem;
   padding: 0 1rem;
   margin: 0 auto;
-  overflow: auto;
 }
 @media (min-width: 576px) {
   .container {
@@ -537,11 +536,15 @@ a.sidebar-nav-item.active {
  */
 
 .pagination {
-  overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
   color: #ccc;
   text-align: center;
+}
+.pagination:after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
 /* Pagination items can be `span`s or `a`s */
