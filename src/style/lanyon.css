@@ -14,7 +14,6 @@
  */
 
 @import "normalize.css";
-@import "poole.css";
 @import "icon.css";
 @import "syntax.css";
 
@@ -22,6 +21,10 @@
  * Contents
  *
  * Global resets
+ * Custom type
+ * Messages
+ * Wrapper
+ * Container
  * Masthead
  * Sidebar
  * Slide effect
@@ -37,25 +40,196 @@
  * Update the foundational and global aspects of the page.
  */
 
-/* Prevent scroll on narrow devices */
-html,
-body {
-  overflow-x: hidden;
+* {
+  box-sizing: border-box;
 }
 
-html {
+body {
   font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "PingFang SC", "Microsoft YaHei", "Noto Sans", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 @media (min-width: 48rem) {
-  html {
+  body {
     font-size: 18px;
   }
 }
 
+/* No `:visited` state is required by default (browsers will use `a`) */
+a {
+  color: #268bd2;
+  text-decoration: none;
+}
+/* `:focus` is linked to `:hover` for basic accessibility */
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-  color: #313131;
+  font-weight: normal;
+  line-height: 1.25;
+  color: #303030;
   letter-spacing: -.025rem;
+  text-rendering: optimizeLegibility;
+  margin-bottom: .5rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+h4, h5, h6 {
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+/* Body text */
+strong {
+  color: #303030;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Misc */
+hr {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+  margin: 1.5rem 0;
+}
+
+abbr {
+  font-size: 85%;
+  font-weight: bold;
+  color: #505050;
+  text-transform: uppercase;
+}
+abbr[title] {
+  cursor: help;
+}
+
+img {
+  display: block;
+  margin: 0 0 1rem;
+  border-radius: 5px;
+}
+
+/* Code */
+code,
+pre {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+}
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+}
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f9f9f9;
+}
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent;
+}
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 3px;
+}
+.highlight pre {
+  margin-bottom: 0;
+}
+
+/* Quotes */
+blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 30rem) {
+  blockquote {
+    padding-right: 5rem;
+    padding-left: 1.25rem;
+  }
+}
+
+/* Tables */
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+td,
+th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+  background-color: #f9f9f9;
+}
+
+
+/*
+ * Custom type
+ *
+ * Extend paragraphs with `.lead` for larger introductory text.
+ */
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+
+/*
+ * Messages
+ *
+ * Show alert messages to users. You may add it to single elements like a `<p>`,
+ * or to a parent if there are multiple elements to show.
+ */
+
+.message {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: #717171;
+  background-color: #f9f9f9;
 }
 
 
@@ -85,6 +259,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
   max-width: 28rem;
+  padding: 0 1rem;
+  margin: 0 auto;
   overflow: auto;
 }
 @media (min-width: 38rem) {
@@ -107,10 +283,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .masthead {
   position: relative;
+  padding: 1rem 0;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #eee;
 }
-
+.masthead-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #505050;
+}
+.masthead-title a {
+  color: #505050;
+}
+.masthead-title small {
+  font-size: 75%;
+  font-weight: 400;
+  color: #c0c0c0;
+  letter-spacing: 0;
+}
 @media (max-width: 48rem) {
   .masthead-title {
     text-align: center;
@@ -272,7 +462,27 @@ a.sidebar-nav-item.active {
 
 .page,
 .post {
+  color: #303030;
   margin-bottom: 3em;
+}
+
+/* Blog post or page title */
+.page-title,
+.post-title,
+.post-title a {
+  color: #303030;
+}
+.page-title,
+.post-title {
+  margin-top: 0;
+}
+
+/* Meta data line below post title */
+.post-date {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
 }
 
 /* Post body */
@@ -281,6 +491,7 @@ a.sidebar-nav-item.active {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   height: 4.5em;
+  color: #505050;
   overflow-y: hidden;
   text-overflow: ellipsis;
 }
@@ -288,12 +499,33 @@ a.sidebar-nav-item.active {
 /* Post header */
 .header {
   border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
 }
 
 /* Related posts */
 .related {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  border-top: 1px solid #eee;
+}
+
+.related-posts {
+  padding-left: 0;
+  list-style: none;
+}
+.related-posts h3 {
+  margin-top: 0;
+}
+.related-posts li small {
+  font-size: 75%;
+  color: #999;
+}
+.related-posts li a:hover {
+  color: #268bd2;
+  text-decoration: none;
+}
+.related-posts li a:hover small {
+  color: inherit;
 }
 
 
@@ -304,9 +536,19 @@ a.sidebar-nav-item.active {
  * there are no more previous or next posts to show.
  */
 
+.pagination {
+  overflow: hidden; /* clearfix */
+  margin-left: -1rem;
+  margin-right: -1rem;
+  color: #ccc;
+  text-align: center;
+}
+
 /* Pagination items can be `span`s or `a`s */
 .pagination-item {
+  display: block;
   padding: 0.5rem;
+  border: 1px solid #eee;
 }
 
 /* Only provide a hover state for linked pagination items */
