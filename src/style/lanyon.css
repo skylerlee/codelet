@@ -50,7 +50,7 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
 }
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   body {
     font-size: 18px;
   }
@@ -181,7 +181,7 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0;
 }
-@media (min-width: 30rem) {
+@media (min-width: 480px) {
   blockquote {
     padding-right: 5rem;
     padding-left: 1.25rem;
@@ -263,12 +263,12 @@ tbody tr:nth-child(odd) th {
   margin: 0 auto;
   overflow: auto;
 }
-@media (min-width: 38rem) {
+@media (min-width: 576px) {
   .container {
     max-width: 32rem;
   }
 }
-@media (min-width: 56rem) {
+@media (min-width: 992px) {
   .container {
     max-width: 38rem;
   }
@@ -301,7 +301,7 @@ tbody tr:nth-child(odd) th {
   color: #c0c0c0;
   letter-spacing: 0;
 }
-@media (max-width: 48rem) {
+@media (max-width: 768px) {
   .masthead-title {
     text-align: center;
   }
@@ -372,7 +372,7 @@ a.sidebar-nav-item.active {
   border-right: 2px solid #fff;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 768px) {
   .sidebar-item {
     padding: 1.5rem;
   }
@@ -560,7 +560,7 @@ a.pagination-item.disabled {
   cursor: not-allowed;
 }
 
-@media (min-width: 30rem) {
+@media (min-width: 480px) {
   .pagination {
     width: 30rem;
     margin: 1.5rem auto;
