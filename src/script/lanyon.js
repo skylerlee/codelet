@@ -13,20 +13,20 @@
  * Learn more at https://github.com/skylerlee/codelet.
  */
 
-import * as dom from './minidom';
+import dom from './minidom';
 
 // setup listeners
 var wrapper = document.getElementById('wrapper');
 var sidebar = document.getElementById('sidebar');
 var toggle = document.getElementById('sidebar-toggle');
 
-dom.on(toggle, 'click', function () {
-  dom.toggleClass(toggle, 'active');
-  if (dom.hasClass(toggle, 'active')) {
-    dom.addClass(sidebar, 'open');
-    dom.addClass(wrapper, 'shift');
+dom(toggle).on('click', function () {
+  dom(toggle).toggleClass('active');
+  if (dom(toggle).hasClass('active')) {
+    dom(sidebar).addClass('open');
+    dom(wrapper).addClass('shift');
   } else {
-    dom.removeClass(sidebar, 'open');
-    dom.removeClass(wrapper, 'shift');
+    dom(sidebar).removeClass('open');
+    dom(wrapper).removeClass('shift');
   }
 });
