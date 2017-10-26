@@ -14,6 +14,7 @@
  */
 
 import dom from './minidom';
+import utils from './utils';
 
 // setup listeners
 var wrapper = document.getElementById('wrapper');
@@ -30,3 +31,5 @@ dom(toggle).on('click', function () {
     dom(wrapper).removeClass('shift');
   }
 });
+
+window.$utils = utils;
