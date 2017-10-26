@@ -354,7 +354,7 @@ tbody tr:nth-child(odd) {
   top:  50%;
   left: 1rem;
   width: 44px;
-  height: 35px;
+  height: 36px;
   margin-top: -18px;
   padding: 0;
   background-color: #fff;
@@ -368,7 +368,7 @@ tbody tr:nth-child(odd) {
   position: absolute;
   display: block;
   width: 22px;
-  height: 3px;
+  height: 4px;
   background-color: #505050;
   border-radius: 1px;
 }
