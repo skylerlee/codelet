@@ -1,7 +1,7 @@
 {
   "name": "codelet",
   "version": "1.0.0",
-  "description": "A Jekyll theme that based on Mark Otto's Lanyon theme.",
+  "description": "A Jekyll theme that derived from Lanyon theme.",
   "scripts": {
     "build": "gulp"
   },
