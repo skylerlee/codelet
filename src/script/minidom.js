@@ -119,11 +119,4 @@ dom.fn.addClass = addClass;
 dom.fn.removeClass = removeClass;
 dom.fn.toggleClass = toggleClass;
 
-export {
-  on,
-  off,
-  hasClass,
-  addClass,
-  removeClass,
-  toggleClass
-}
+export default dom;
