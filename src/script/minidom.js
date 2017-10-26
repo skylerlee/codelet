@@ -12,6 +12,8 @@ function dom(el) {
   this.el = el;
 }
 
+dom.fn = dom.prototype;
+
 var handlerMap = {};
 var uidCount = 1000;
 
@@ -73,6 +75,9 @@ function off(event, fn) {
   }
 }
 
+dom.fn.on = on;
+dom.fn.off = off;
+
 /*
  * ClassName utils
  */
@@ -108,6 +113,11 @@ function removeClass(clz) {
 function toggleClass(clz) {
   this.hasClass(clz) ? this.removeClass(clz) : this.addClass(clz);
 }
+
+dom.fn.hasClass = hasClass;
+dom.fn.addClass = addClass;
+dom.fn.removeClass = removeClass;
+dom.fn.toggleClass = toggleClass;
 
 export {
   on,
