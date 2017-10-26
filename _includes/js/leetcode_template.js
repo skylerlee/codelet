@@ -26,14 +26,12 @@ require([
   );
 
   init(srcBox, {
-    mode: 'json'
+    mode: 'json',
+    value: preproc(srcBox.getValue())
   });
   init(outBox, {
     mode: 'markdown'
   });
-
-  var source = preproc(srcBox.getValue());
-  srcBox.setValue(source);
 
   var template = outBox.getValue();
   mustache.parse(template);
