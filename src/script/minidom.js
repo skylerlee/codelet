@@ -14,12 +14,13 @@ function dom(el) {
 
 dom.fn = dom.prototype;
 
-var handlerMap = {};
-var uidCount = 1000;
-
 /*
  * Event utils
+ * For browsers except ie<=8
  */
+
+var handlerMap = {};
+var uidCount = 1000;
 
 function getUID(el) {
   if (!el._uid_) {
@@ -80,6 +81,7 @@ dom.fn.off = off;
 
 /*
  * ClassName utils
+ * For browsers without classList support.
  */
 
 function _trim(str) {
