@@ -41,7 +41,7 @@ require([
       var context = JSON.parse(srcBox.getValue());
       postproc(context);
       var output = mustache.render(template, context);
-      outBox.setValue(output);
+      outBox.setValue(output, 1);
     } catch (e) {
       // omit error
     }
@@ -52,7 +52,7 @@ require([
     editor.setTheme('ace/theme/monokai');
     editor.getSession().setTabSize(2);
     if (options.value) {
-      editor.setValue(options.value);
+      editor.setValue(options.value, 1);
     }
     if (options.mode) {
       editor.getSession().setMode('ace/mode/' + options.mode);
