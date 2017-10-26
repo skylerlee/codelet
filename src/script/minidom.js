@@ -4,6 +4,14 @@
  * Learn more at https://github.com/skylerlee/codelet.
  */
 
+/*
+ * constructor
+ */
+
+function dom(el) {
+  this.el = el;
+}
+
 var handlerMap = {};
 var uidCount = 1000;
 
