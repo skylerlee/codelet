@@ -10,7 +10,7 @@ source = require 'vinyl-source-stream'
 buffer = require 'vinyl-buffer'
 uglify = require 'gulp-uglify'
 
-gulp.task 'default', ['build-css', 'build-main']
+gulp.task 'default', ['build-css', 'build-js']
 
 gulp.task 'build-css', ->
   gulp.src './src/style/lanyon.css'
@@ -26,7 +26,7 @@ gulp.task 'build-css', ->
   ])
   .pipe gulp.dest('./assets/css')
 
-gulp.task 'build-main', (cb) ->
+gulp.task 'build-js', (cb) ->
   pump([
     rollup
       input: './src/script/lanyon.js'
