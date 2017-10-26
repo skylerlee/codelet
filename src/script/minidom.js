@@ -9,10 +9,17 @@
  */
 
 function dom(el) {
-  this.el = el;
+  return new dom.fn.init(el);
 }
 
-dom.fn = dom.prototype;
+dom.fn = dom.prototype = {
+  constructor: dom,
+  init: function (el) {
+    this.el = el;
+  }
+};
+
+dom.fn.init.prototype = dom.fn;
 
 /*
  * Event utils
