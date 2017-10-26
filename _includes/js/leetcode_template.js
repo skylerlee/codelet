@@ -15,7 +15,7 @@ require([
   var srcBox = ace.edit('src-box');
   var outBox = ace.edit('out-box');
 
-  utils.appendStyle(
+  $utils.appendCSS(
     '.ace-editor {\n' +
     '  font-size: 16px;\n' +
     '  height: 22em;\n' +
@@ -58,7 +58,7 @@ require([
   }
 
   function preproc(str) {
-    return str.replace('%t', utils.formatDate('%4Y-%2M-%2D %2h:%2m:%2s %z'));
+    return str.replace('%t', $utils.formatDate('%4Y-%2M-%2D %2h:%2m:%2s %z'));
   }
 
   function postproc(data) {
