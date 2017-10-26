@@ -18,7 +18,7 @@ function getUID(el) {
   return el._uid_;
 }
 
-function addHandler(uid, event, fn) {
+function _addHandler(uid, event, fn) {
   if (!handlerMap[uid]) {
     handlerMap[uid] = [];
   }
@@ -28,7 +28,7 @@ function addHandler(uid, event, fn) {
   });
 }
 
-function removeHandler(uid, event, fn) {
+function _removeHandler(uid, event, fn) {
   var handlers = handlerMap[uid];
   if (handlers) {
     var result = [];
@@ -50,17 +50,17 @@ function removeHandler(uid, event, fn) {
   }
 }
 
-function on(el, event, fn) {
-  el.addEventListener(event, fn);
-  var uid = getUID(el);
-  addHandler(uid, event, fn);
+function on(event, fn) {
+  this.el.addEventListener(event, fn);
+  var uid = getUID(this.el);
+  _addHandler(uid, event, fn);
 }
 
-function off(el, event, fn) {
-  var handlers = removeHandler(el._uid_, event, fn);
+function off(event, fn) {
+  var handlers = _removeHandler(this.el._uid_, event, fn);
   if (handlers) {
     handlers.forEach(function (handler) {
-      el.removeEventListener(handler.event, handler.fn);
+      this.el.removeEventListener(handler.event, handler.fn);
     });
   }
 }
@@ -81,24 +81,24 @@ function _setClass(el, className) {
   el.className = _trim(className);
 }
 
-function hasClass(el, clz) {
-  return _getClass(el).indexOf(' ' + clz + ' ') > -1;
+function hasClass(clz) {
+  return _getClass(this.el).indexOf(' ' + clz + ' ') > -1;
 }
 
-function addClass(el, clz) {
-  if (!hasClass(el, clz)) {
-    _setClass(el, _getClass(el) + clz);
+function addClass(clz) {
+  if (!this.hasClass(clz)) {
+    _setClass(this.el, _getClass(this.el) + clz);
   }
 }
 
-function removeClass(el, clz) {
-  if (hasClass(el, clz)) {
-    _setClass(el, _getClass(el).replace(' ' + clz + ' ', ' '));
+function removeClass(clz) {
+  if (this.hasClass(clz)) {
+    _setClass(this.el, _getClass(this.el).replace(' ' + clz + ' ', ' '));
   }
 }
 
-function toggleClass(el, clz) {
-  hasClass(el, clz) ? removeClass(el, clz) : addClass(el, clz);
+function toggleClass(clz) {
+  this.hasClass(clz) ? this.removeClass(clz) : this.addClass(clz);
 }
 
 export {
