@@ -13,8 +13,8 @@ uglify = require 'gulp-uglify'
 gulp.task 'default', ['build-css', 'build-js']
 
 gulp.task 'build-css', ->
-  gulp.src './src/style/lanyon.css'
-  .pipe rename('lanyon.min.css')
+  gulp.src './src/style/enfield.css'
+  .pipe rename('enfield.min.css')
   .pipe postcss([
     atImport()
     autoprefixer
@@ -29,11 +29,11 @@ gulp.task 'build-css', ->
 gulp.task 'build-js', (cb) ->
   pump([
     rollup
-      input: './src/script/lanyon.js'
+      input: './src/script/enfield.js'
       format: 'iife'
-    source('lanyon.js')
+    source('enfield.js')
     buffer()
-    rename('lanyon.min.js')
+    rename('enfield.min.js')
     uglify()
     gulp.dest('./assets/js')
   ], cb)
