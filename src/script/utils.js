@@ -1,3 +1,6 @@
+/*
+ * Utility functions
+ */
 
 function loadCSS(url) {
   var link = document.createElement('link');
@@ -6,7 +9,7 @@ function loadCSS(url) {
   document.head.appendChild(link);
 }
 
-function appendStyle(text) {
+function appendCSS(text) {
   var style = document.createElement('style');
   style.innerHTML = text;
   document.head.appendChild(style);
@@ -68,6 +71,6 @@ function formatDate(str) {
 
 export default {
   loadCSS: loadCSS,
-  appendStyle: appendStyle,
+  appendCSS: appendCSS,
   formatDate: formatDate
 };
