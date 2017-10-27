@@ -238,7 +238,7 @@ tbody tr:nth-child(odd) {
 }
 @media (min-width: 992px) {
   .container {
-    max-width: 38rem;
+    max-width: 42rem;
   }
 }
 
