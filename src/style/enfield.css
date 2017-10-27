@@ -216,7 +216,7 @@ tbody tr:nth-child(odd) {
   min-height: 100%;
 }
 .wrapper.shift {
-  left: 14rem;
+  left: 16rem;
 }
 
 
@@ -289,8 +289,8 @@ tbody tr:nth-child(odd) {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -14rem;
-  width: 14rem;
+  left: -16rem;
+  width: 16rem;
   visibility: hidden;
   overflow-y: auto;
   font-size: .875rem; /* 14px */
