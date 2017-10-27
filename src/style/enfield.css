@@ -161,6 +161,14 @@ pre code {
   border-radius: 0;
 }
 
+.highlight {
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+pre.highlight {
+  margin-bottom: 0;
+}
+
 /* Quotes */
 blockquote {
   padding: .5rem 1rem;
