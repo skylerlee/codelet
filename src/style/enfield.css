@@ -357,8 +357,8 @@ tbody tr:nth-child(odd) {
   height: 36px;
   margin-top: -18px;
   padding: 0;
-  background-color: #fff;
-  border: 1px solid #fff;
+  background-color: transparent;
+  border: 1px solid transparent;
   border-radius: 3px;
   outline: none;
   cursor: pointer;
@@ -369,7 +369,7 @@ tbody tr:nth-child(odd) {
   display: block;
   width: 22px;
   height: 4px;
-  background-color: #505050;
+  background-color: #fff;
   border-radius: 1px;
 }
 .sidebar-toggle .icon-bar:nth-child(1) {
@@ -386,10 +386,7 @@ tbody tr:nth-child(odd) {
 }
 
 .sidebar-toggle.active {
-  background-color: #505050;
-}
-.sidebar-toggle.active .icon-bar {
-  background-color: #fff;
+  background-color: #1a237e;
 }
 .sidebar-toggle.active .icon-bar:nth-child(1) {
   top: 15px;
