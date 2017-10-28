@@ -294,9 +294,8 @@ tbody tr:nth-child(odd) {
   visibility: hidden;
   overflow-y: auto;
   font-size: .875rem; /* 14px */
-  color: #969696;
-  background-color: #212121;
-  border-right: 2px solid #000000;
+  background-color: #283593;
+  border-right: 2px solid #161d6a;
 }
 .sidebar.open {
   left: 0;
@@ -313,6 +312,7 @@ tbody tr:nth-child(odd) {
 .sidebar-item {
   padding: 1rem;
   text-align: center;
+  color: #ccc;
 }
 .sidebar-item:last-child {
   position: absolute;
@@ -339,13 +339,12 @@ tbody tr:nth-child(odd) {
   border-top: 1px solid #3c3c3c;
 }
 .sidebar-nav-item.active {
-  background-color: #303030;
+  background-color: #1a237e;
   border-right: 2px solid #fff;
 }
 @media (min-width: 768px) {
   .sidebar-nav-item {
-    padding-left:  1.5rem;
-    padding-right: 1.5rem;
+    padding: .5rem 1.5rem;
   }
 }
 
