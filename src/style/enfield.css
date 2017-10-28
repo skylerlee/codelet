@@ -332,6 +332,7 @@ tbody tr:nth-child(odd) {
   color: #fff;
 }
 .sidebar-nav-item {
+  position: relative;
   display: block;
   padding: .5rem 1rem;
   text-align: center;
@@ -344,6 +345,15 @@ tbody tr:nth-child(odd) {
 }
 .sidebar-nav-item.active {
   background-color: #1a237e;
+}
+.sidebar-nav-item.active:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  border-right: 2px solid #fff;
 }
 @media (min-width: 768px) {
   .sidebar-nav-item {
