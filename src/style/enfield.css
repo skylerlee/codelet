@@ -328,19 +328,22 @@ tbody tr:nth-child(odd) {
 
 /* Sidebar nav */
 .sidebar-nav {
-  border-bottom: 1px solid #3c3c3c;
+  background-color: #283593;
+  color: #fff;
 }
 .sidebar-nav-item {
   display: block;
   padding: .5rem 1rem;
   text-align: center;
-  text-decoration: none;
-  color: #fff;
-  border-top: 1px solid #3c3c3c;
+  color: inherit;
+  border-top: 1px solid #161d6a;
+  border-bottom: 1px solid #161d6a;
+}
+.sidebar-nav-item + .sidebar-nav-item {
+  border-top: none;
 }
 .sidebar-nav-item.active {
   background-color: #1a237e;
-  border-right: 2px solid #fff;
 }
 @media (min-width: 768px) {
   .sidebar-nav-item {
