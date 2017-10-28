@@ -253,19 +253,19 @@ tbody tr:nth-child(odd) {
   position: relative;
   padding: 1rem 0;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #eee;
+  background-color: #3949ab;
 }
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0;
-  color: #505050;
+  color: #fff;
 }
 .masthead-title a {
-  color: #505050;
+  color: inherit;
 }
 .masthead-title small {
   font-size: 75%;
-  color: #c0c0c0;
+  color: #ccc;
 }
 @media (max-width: 768px) {
   .masthead-title {
