@@ -495,13 +495,6 @@ tbody tr:nth-child(odd) {
 .related-posts h3 {
   margin-top: 0;
 }
-.related-posts li small {
-  color: #969696;
-}
-.related-posts li a:hover {
-  color: #268bd2;
-  text-decoration: none;
-}
 
 
 /*
