@@ -96,6 +96,10 @@ strong {
   color: #303030;
 }
 
+small {
+  font-size: 75%;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -264,7 +268,6 @@ tbody tr:nth-child(odd) {
   color: inherit;
 }
 .masthead-title small {
-  font-size: 75%;
   color: #ccc;
 }
 @media (max-width: 768px) {
@@ -494,7 +497,6 @@ tbody tr:nth-child(odd) {
   margin-top: 0;
 }
 .related-posts li small {
-  font-size: 75%;
   color: #969696;
 }
 .related-posts li a:hover {
