@@ -291,7 +291,7 @@ tbody tr:nth-child(odd) {
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0;
+  left: -16rem;
   bottom: 0;
   width: 16rem;
   font-size: .875rem; /* 14px */
