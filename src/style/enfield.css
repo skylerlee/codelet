@@ -346,7 +346,11 @@ tbody tr:nth-child(odd) {
 .sidebar-nav-item + .sidebar-nav-item {
   border-top: none;
 }
+.sidebar-nav-item:hover {
+  text-decoration: underline;
+}
 .sidebar-nav-item.active {
+  text-decoration: none;
   background-color: #1a237e;
 }
 .sidebar-nav-item.active:after {
