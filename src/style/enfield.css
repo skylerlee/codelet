@@ -216,11 +216,11 @@ tbody tr:nth-child(odd) {
 
 .wrapper {
   position: relative;
-  left: 0;
   min-height: 100%;
+  transform: translateX(0);
 }
 .wrapper.shift {
-  left: 16rem;
+  transform: translateX(16rem);
 }
 
 
@@ -292,16 +292,16 @@ tbody tr:nth-child(odd) {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: -16rem;
   width: 16rem;
-  visibility: hidden;
-  overflow-y: auto;
   font-size: .875rem; /* 14px */
   background-color: #283593;
   border-right: 2px solid #161d6a;
+  overflow-y: auto;
+  transform: translateX(-16rem);
+  visibility: hidden;
 }
 .sidebar.open {
-  left: 0;
+  transform: translateX(0);
   visibility: visible;
 }
 
@@ -429,7 +429,7 @@ tbody tr:nth-child(odd) {
 
 .wrapper,
 .sidebar {
-  transition: left .3s ease-in-out, visibility .3s ease-in-out;
+  transition: transform .3s ease-in-out, visibility .3s ease-in-out;
 }
 
 .sidebar-toggle .icon-bar {
