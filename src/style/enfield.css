@@ -492,8 +492,9 @@ tbody tr:nth-child(odd) {
   padding-left: 0;
   list-style: none;
 }
-.related-posts h3 {
-  margin-top: 0;
+.related-posts .post-date {
+  float: right;
+  margin: 0;
 }
 
 
