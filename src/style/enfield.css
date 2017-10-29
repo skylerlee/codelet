@@ -478,14 +478,13 @@ tbody tr:nth-child(odd) {
 
 /* Post header */
 .header {
-  border-bottom: 1px solid #eee;
   margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
 }
 
-/* Related posts */
-.related {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
+/* Post footer */
+.footer {
+  margin-bottom: 2rem;
   border-top: 1px solid #eee;
 }
 
@@ -502,9 +501,6 @@ tbody tr:nth-child(odd) {
 .related-posts li a:hover {
   color: #268bd2;
   text-decoration: none;
-}
-.related-posts li a:hover small {
-  color: inherit;
 }
 
 
