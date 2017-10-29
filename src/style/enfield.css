@@ -291,17 +291,18 @@ tbody tr:nth-child(odd) {
 .sidebar {
   position: fixed;
   top: 0;
+  right: 0;
   bottom: 0;
   width: 16rem;
   font-size: .875rem; /* 14px */
   background-color: #283593;
   border-right: 2px solid #161d6a;
   overflow-y: auto;
-  transform: translateX(-16rem);
+  transform: translateX(0);
   visibility: hidden;
 }
 .sidebar.open {
-  transform: translateX(0);
+  transform: translateX(16rem);
   visibility: visible;
 }
 
