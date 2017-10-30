@@ -1,9 +1,10 @@
-<div class="pagination">
+<div class="page-navs">
   {% if paginator.previous_page %}
   <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">Previous</a>
   {% else %}
   <a class="page-link disabled">Previous</a>
   {% endif %}
+  <span class="page-meter">{{ paginator.page }} / {{ paginator.total_pages }}</span>
   {% if paginator.next_page %}
   <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Next</a>
   {% else %}

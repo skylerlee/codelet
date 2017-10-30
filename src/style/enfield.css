@@ -518,18 +518,23 @@ tbody tr:nth-child(odd) {
  * there are no more previous or next posts to show.
  */
 
-.pagination {
+.page-navs {
   margin-left: -1rem;
   margin-right: -1rem;
   text-align: center;
 }
-.pagination .page-link {
+.page-navs .page-link {
 }
-.pagination .page-link.disabled {
+.page-navs .page-link.disabled {
   color: #969696;
   cursor: not-allowed;
 }
+.page-navs .page-meter {
+}
 @media (min-width: 480px) {
+  .page-navs {
+    margin-bottom: 2rem;
+  }
 }
 
 
