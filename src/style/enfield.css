@@ -46,12 +46,11 @@ html,
 body {
   overflow-x: hidden;
 }
+
 html {
+  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "PingFang SC", "Microsoft YaHei", "Noto Sans", "WenQuanYi Micro Hei", sans-serif;
   font-size: 16px;
   line-height: 1.5;
-}
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, Roboto, "PingFang SC", "Microsoft YaHei", "Noto Sans", "WenQuanYi Micro Hei", sans-serif;
 }
 @media (min-width: 768px) {
   html {
