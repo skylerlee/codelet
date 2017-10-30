@@ -3,12 +3,20 @@
     <span>{{ site.description }}</span>
   </div>
   <nav class="sidebar-nav">
-    <a class="sidebar-nav-item{% if page.title == "Home" %} active{% endif %}" href="{{ site.url }}">Home</a>
+  {% if page.title == "Home" %}
+    <a class="sidebar-nav-item active">Home</a>
+  {% else %}
+    <a class="sidebar-nav-item" href="{{ site.url }}">Home</a>
+  {% endif %}
   {% assign site_pages = site.pages %}
   {% for node in site_pages %}
     {% if node.title != null %}
       {% if node.layout == "page" %}
-    <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url | relative_url }}">{{ node.title }}</a>
+        {% if page.url == node.url %}
+    <a class="sidebar-nav-item active">{{ node.title }}</a>
+        {% else %}
+    <a class="sidebar-nav-item" href="{{ node.url | relative_url }}">{{ node.title }}</a>
+        {% endif %}
       {% endif %}
     {% endif %}
   {% endfor %}
