@@ -4,7 +4,9 @@
   {% else %}
   <a class="page-link disabled">Previous</a>
   {% endif %}
-  <span class="page-meter">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  <span class="page-meter">
+    <input id="page-cursor" type="text" value="{{ paginator.page }}"> / {{ paginator.total_pages }}
+  </span>
   {% if paginator.next_page %}
   <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Next</a>
   {% else %}
