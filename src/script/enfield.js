@@ -20,6 +20,7 @@ import utils from './utils';
 var wrapper = document.getElementById('wrapper');
 var sidebar = document.getElementById('sidebar');
 var toggle = document.getElementById('sidebar-toggle');
+var cursor = document.getElementById('page-cursor');
 
 dom(toggle).on('click', function () {
   dom(toggle).toggleClass('active');
@@ -29,6 +30,12 @@ dom(toggle).on('click', function () {
   } else {
     dom(sidebar).removeClass('open');
     dom(wrapper).removeClass('shift');
+  }
+});
+
+dom(cursor).on('keypress', function (e) {
+  if (e.charCode === 13) {
+    var val = parseInt(cursor.value);
   }
 });
 
