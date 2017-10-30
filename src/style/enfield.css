@@ -531,6 +531,15 @@ tbody tr:nth-child(odd) {
 }
 .page-navs .page-meter {
 }
+.page-navs .page-meter input[type="text"] {
+  width: 1.2em;
+  text-align: center;
+  border: 1px solid #eee;
+  outline: none;
+}
+.page-navs .page-meter input[type="text"]:focus {
+  border: 1px solid #161d6a;
+}
 @media (min-width: 480px) {
   .page-navs {
     margin-bottom: 2rem;
