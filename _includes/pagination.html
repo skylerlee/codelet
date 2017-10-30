@@ -1,12 +1,12 @@
 <div class="pagination">
   {% if paginator.previous_page %}
-  <a class="pagination-item newer" href="{{ paginator.previous_page_path | relative_url }}">Newer</a>
+  <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}">Previous</a>
   {% else %}
-  <a class="pagination-item newer disabled">Newer</a>
+  <a class="page-link disabled">Previous</a>
   {% endif %}
   {% if paginator.next_page %}
-  <a class="pagination-item older" href="{{ paginator.next_page_path | relative_url }}">Older</a>
+  <a class="page-link" href="{{ paginator.next_page_path | relative_url }}">Next</a>
   {% else %}
-  <a class="pagination-item older disabled">Older</a>
+  <a class="page-link disabled">Next</a>
   {% endif %}
 </div>
