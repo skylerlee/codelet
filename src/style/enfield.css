@@ -519,24 +519,26 @@ tbody tr:nth-child(odd) {
  */
 
 .page-navs {
-  margin: 0 -1rem;
+  margin: 0 2rem 1rem;
   text-align: center;
-}
-@media (min-width: 480px) {
-  .page-navs {
-    margin: 0 0 2rem;
-  }
 }
 
 .page-navs .page-link,
 .page-navs .page-meter {
-  padding: .5rem;
+  padding: .4rem;
   margin: 0 1rem;
+}
+
+.page-navs .page-link {
+  display: inline-block;
+  min-width: 6rem;
+  background-color: #e4e4e4;
 }
 .page-navs .page-link.disabled {
   color: #969696;
   cursor: not-allowed;
 }
+
 .page-navs .page-meter input[type="text"] {
   width: 1.2em;
   text-align: center;
@@ -545,6 +547,11 @@ tbody tr:nth-child(odd) {
 }
 .page-navs .page-meter input[type="text"]:focus {
   border: 1px solid #3949ab;
+}
+@media (min-width: 480px) {
+  .page-navs {
+    margin: 0 0 2rem;
+  }
 }
 
 
