@@ -119,7 +119,7 @@ ul, ol {
 
 /* Misc */
 hr {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e4e4e4;
   margin: 1.5rem 0;
 }
 
@@ -184,7 +184,7 @@ blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
   color: #727272;
-  border-left: .25rem solid #e5e5e5;
+  border-left: .25rem solid #cfcfcf;
 }
 blockquote p:last-child {
   margin-bottom: 0;
@@ -198,14 +198,14 @@ blockquote p:last-child {
 /* Tables */
 table {
   width: 100%;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #e4e4e4;
   border-collapse: collapse;
   margin-bottom: 1rem;
 }
 td,
 th {
   padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #e4e4e4;
 }
 tbody tr:nth-child(odd) {
   background-color: #f8f8f8;
@@ -492,13 +492,13 @@ tbody tr:nth-child(odd) {
 /* Post header */
 .header {
   margin-bottom: 2rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #e4e4e4;
 }
 
 /* Post footer */
 .footer {
   margin-bottom: 2rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e4e4e4;
 }
 
 .related-posts {
@@ -534,11 +534,11 @@ tbody tr:nth-child(odd) {
 .page-navs .page-meter input[type="text"] {
   width: 1.2em;
   text-align: center;
-  border: 1px solid #eee;
+  border: 1px solid #e4e4e4;
   outline: none;
 }
 .page-navs .page-meter input[type="text"]:focus {
-  border: 1px solid #161d6a;
+  border: 1px solid #3949ab;
 }
 @media (min-width: 480px) {
   .page-navs {
@@ -572,7 +572,7 @@ tbody tr:nth-child(odd) {
   padding: 0;
 }
 .tag-list>li {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e4e4e4;
 }
 
 .tagged-posts {
