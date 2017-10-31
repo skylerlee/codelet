@@ -540,14 +540,17 @@ tbody tr:nth-child(odd) {
   cursor: not-allowed;
 }
 
-.page-navs .page-meter input[type="text"] {
+.page-navs .page-meter input {
   width: 1.2em;
   text-align: center;
   border: 1px solid #e4e4e4;
   outline: none;
 }
-.page-navs .page-meter input[type="text"]:focus {
+.page-navs .page-meter input:focus {
   border: 1px solid #3949ab;
+}
+.page-navs .page-meter input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 @media (min-width: 480px) {
   .page-navs {

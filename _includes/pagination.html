@@ -5,7 +5,7 @@
   <a class="page-link disabled">Previous</a>
   {% endif %}
   <span class="page-meter">
-    <input id="page-cursor" type="text" value="{{ paginator.page }}"
+    <input id="page-cursor" type="number" value="{{ paginator.page }}"
         min="1" max="{{ paginator.total_pages }}">
     / {{ paginator.total_pages }}
   </span>
