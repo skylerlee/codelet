@@ -34,7 +34,6 @@ dom(toggle).on('click', function () {
 });
 
 var page = {
-  path: cursor.getAttribute('path'),
   min: Number(cursor.getAttribute('min')),
   max: Number(cursor.getAttribute('max'))
 };
