@@ -525,12 +525,11 @@ tbody tr:nth-child(odd) {
 
 .page-navs .page-link,
 .page-navs .page-meter {
-  padding: .4rem;
-  margin: 0 1rem;
+  display: block;
+  padding: .4rem .8rem;
 }
 
 .page-navs .page-link {
-  display: inline-block;
   min-width: 6rem;
   background-color: #e4e4e4;
 }
@@ -550,7 +549,12 @@ tbody tr:nth-child(odd) {
 }
 @media (min-width: 480px) {
   .page-navs {
-    margin: 0 0 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .page-navs .page-link,
+  .page-navs .page-meter {
+    display: inline-block;
   }
 }
 
