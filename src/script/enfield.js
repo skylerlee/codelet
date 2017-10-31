@@ -35,18 +35,25 @@ dom(toggle).on('click', function () {
 
 var page = {
   min: Number(cursor.getAttribute('min')),
-  max: Number(cursor.getAttribute('max'))
+  max: Number(cursor.getAttribute('max')),
+  gotoPage: function (num) {
+    var path = location.pathname;
+    var dest = path;
+    if (/page\d+\/?$/.test(path)) { // page postfix
+      dest = path.match(/^(.*\/)page\d+\/?$/)[1];
+    }
+    if (num > 1) {
+      dest += 'page' + num + '/';
+    }
+    document.location = dest;
+  }
 };
 
 dom(cursor).on('keypress', function (e) {
   if (e.charCode === 13) {
     var val = parseInt(cursor.value);
     if (val >= page.min && val <= page.max) {
-      var num = '';
-      if (val > 1) {
-        num += val;
-      }
-      window.location = page.path.replace(':num', num);
+      page.gotoPage(val);
     }
   }
 });
