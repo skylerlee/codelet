@@ -532,6 +532,8 @@ tbody tr:nth-child(odd) {
 .page-navs .page-link {
   min-width: 6rem;
   background-color: #e4e4e4;
+  color: #303030;
+  border-radius: 3px;
 }
 .page-navs .page-link.disabled {
   color: #969696;
