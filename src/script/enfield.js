@@ -33,9 +33,22 @@ dom(toggle).on('click', function () {
   }
 });
 
+var page = {
+  path: cursor.getAttribute('path'),
+  min: Number(cursor.getAttribute('min')),
+  max: Number(cursor.getAttribute('max'))
+};
+
 dom(cursor).on('keypress', function (e) {
   if (e.charCode === 13) {
     var val = parseInt(cursor.value);
+    if (val >= page.min && val <= page.max) {
+      var num = '';
+      if (val > 1) {
+        num += val;
+      }
+      window.location = page.path.replace(':num', num);
+    }
   }
 });
 
