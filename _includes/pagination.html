@@ -6,7 +6,8 @@
   {% endif %}
   <span class="page-meter">
     <input id="page-cursor" type="text" value="{{ paginator.page }}"
-        min="0" max="{{ paginator.total_pages }}">
+        path="{{ site.paginate_path }}"
+        min="1" max="{{ paginator.total_pages }}">
     / {{ paginator.total_pages }}
   </span>
   {% if paginator.next_page %}
