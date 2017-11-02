@@ -54,6 +54,8 @@ dom(cursor).on('keypress', function (e) {
     var val = parseInt(cursor.value);
     if (val >= page.min && val <= page.max) {
       page.gotoPage(val);
+    } else {
+      dom(cursor).addClass('invalid');
     }
   }
 });

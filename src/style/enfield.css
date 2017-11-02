@@ -549,6 +549,10 @@ tbody tr:nth-child(odd) {
 .page-navs .page-meter input:focus {
   border: 1px solid #3949ab;
 }
+.page-navs .page-meter input.invalid {
+  border-color: #f44336;
+  box-shadow: 0 0 3px #ff5252;
+}
 .page-navs .page-meter input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
