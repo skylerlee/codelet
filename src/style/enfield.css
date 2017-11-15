@@ -259,7 +259,7 @@ tbody tr:nth-child(odd) {
   position: relative;
   padding: 1rem 0;
   margin-bottom: 1.5rem;
-  background-color: #3949ab;
+  background-color: #3f52b8;
 }
 .masthead-title {
   margin-top: 0;
@@ -297,8 +297,8 @@ tbody tr:nth-child(odd) {
   bottom: 0;
   width: 16rem;
   font-size: .875rem; /* 14px */
-  background-color: #283593;
-  border-right: 2px solid #161d6a;
+  background-color: #263238;
+  border-right: 2px solid #11171a;
   overflow-y: auto;
   transform: translateX(0);
   visibility: hidden;
@@ -543,7 +543,7 @@ tbody tr:nth-child(odd) {
   -moz-appearance: textfield;
 }
 .page-navs .page-meter input:focus {
-  border: 1px solid #3949ab;
+  border: 1px solid #3f52b8;
 }
 .page-navs .page-meter input.invalid {
   border-color: #f44336;
