@@ -334,7 +334,7 @@ tbody tr:nth-child(odd) {
 
 /* Sidebar nav */
 .sidebar-nav {
-  background-color: #283593;
+  background-color: #263238;
   color: #fff;
 }
 .sidebar-nav-item {
@@ -410,7 +410,7 @@ tbody tr:nth-child(odd) {
 }
 
 .sidebar-toggle.active {
-  background-color: #1a237e;
+  background-color: #283593;
 }
 .sidebar-toggle.active .icon-bar:nth-child(1) {
   top: 15px;
