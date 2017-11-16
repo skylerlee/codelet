@@ -349,7 +349,7 @@ tbody tr:nth-child(odd) {
 }
 .sidebar-nav-item.active {
   text-decoration: none;
-  background-color: #1a237e;
+  background-color: #1c2429;
   cursor: default;
 }
 .sidebar-nav-item.active:after {
