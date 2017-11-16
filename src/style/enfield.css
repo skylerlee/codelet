@@ -343,11 +343,6 @@ tbody tr:nth-child(odd) {
   padding: .5rem 1rem;
   text-align: center;
   color: inherit;
-  border-top: 1px solid #161d6a;
-  border-bottom: 1px solid #161d6a;
-}
-.sidebar-nav-item + .sidebar-nav-item {
-  border-top: none;
 }
 .sidebar-nav-item:hover {
   text-decoration: underline;
