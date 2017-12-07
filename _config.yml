@@ -13,7 +13,7 @@ github:
 
 # Dependencies
 markdown:    kramdown
-highlighter: true
+highlighter: rouge
 
 plugins:
   - jekyll-paginate
