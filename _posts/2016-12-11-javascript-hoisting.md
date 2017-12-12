@@ -47,3 +47,11 @@ JavaScript与其他语言相比有一个奇怪的特性——变量提升(Hoisti
 让人疑惑的是如果`let`不提升变量，那么打印的结果应该是外层的变量，然而结果却是变量不能被访问，
 这说明`console.log(a)`语句还是可以‘感知’到下一行的变量声明语句，而这是不是声明语句提前所导致
 的现象呢？
+
+Kyle Simpson大神在[issue: let hoisting](https://github.com/getify/You-Dont-Know-JS/issues/767#issuecomment-227946671)
+里讲道‘提升’并不是一个具体的行为，而`let`的这种现象是因为`TDZ (temporal dead zone)`的存在，
+`var`不产生临时死区-TDZ。
+因此可以理解为JS解释器在编译期会找出所有的变量，并为其分配空间（此时初始值为undefined），但是
+`let`/`const`变量在实际声明语句之前会存在于死区之中，不能被访问，而`var`声明的变量没有这个限制。
+
+最后补充一点：babel是没有实现TDZ的，使用转译器时要特别注意，已测试babel@6.20，详情参考[issue: Block scoping temporal dead zones](https://github.com/babel/babel/issues/563#issuecomment-70920215)
