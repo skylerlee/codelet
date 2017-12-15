@@ -27,6 +27,32 @@ JavaScript与其他语言相比有一个奇怪的特性——变量提升(Hoisti
 
 可见用`var`关键字声明的变量会有提升现象，`let`变量‘没有’提升现象。
 
+**函数优先**
+
+```js
+(function () {
+  console.log(a)   // undefined
+  console.log(b()) // 20
+  console.log(c()) // TypeError: c is not a function
+
+  var a = 10
+
+  function b () { return 20 }
+
+  var c = function () { return 30 }
+}())
+
+(function () {
+  console.log(f()) // 20
+
+  var f = function () { return 10 }
+  function f () { return 20 }
+  f = function () { return 30 }
+}())
+```
+
+上面的例子说明：同样是声明语句，函数声明会优先提升，且函数定义也会随变量名一起提升。
+
 **什么是提升？**
 
 从形式上看，提升是指函数体内声明的变量会‘无视’语句顺序，在整个函数体内都可以访问，就好像变量的
