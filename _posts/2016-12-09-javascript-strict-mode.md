@@ -42,6 +42,14 @@ JavaScript的执行模式可以分为严格模式和宽松模式，严格模式�
 }())
 ```
 
+我们可以借助这一点来判断当前的执行环境
+
+```js
+var isStrict = (function () {
+  return this === undefined
+}())
+```
+
 **抛出静默错误**
 
 ```js
