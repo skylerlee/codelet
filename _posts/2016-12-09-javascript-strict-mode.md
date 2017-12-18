@@ -14,6 +14,8 @@ JavaScript的执行模式可以分为严格模式和宽松模式，严格模式�
 * 更容易被解释器优化，带来更高的执行速度
 * 禁用了未来JS版本会用到的一些语法
 
+可以参考[Microsoft文档](https://docs.microsoft.com/en-us/scripting/javascript/advanced/strict-mode-javascript#rest)，下面我们列举一些常见的不同点
+
 **禁用隐式全局变量**
 
 ```js
