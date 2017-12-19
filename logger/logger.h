@@ -1,6 +1,6 @@
 // console logger utility
-#ifndef LOGGER_H_
-#define LOGGER_H_
+#ifndef CLOGGER_LOGGER_H_
+#define CLOGGER_LOGGER_H_
 
 #include <iostream>
 
@@ -27,4 +27,4 @@ class Logger {
 
 }  // namespace clogger
 
-#endif  // LOGGER_H_
+#endif  // CLOGGER_LOGGER_H_
