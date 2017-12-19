@@ -15,7 +15,7 @@ class Logger {
 
   template<typename T, typename ...Args>
   void log(T t, Args... args) {
-    std::cout << t;
+    std::cout << t << " ";
     log(args...);
   }
 
