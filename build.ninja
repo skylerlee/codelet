@@ -3,7 +3,8 @@ cflags = -std=c++11 -I./
 lflags = -pthread
 
 rule cxx
-  command = g++ $cflags -c $in -o $out
+  command = g++ -MMD -MF $out.d $cflags -c $in -o $out
+  depfile = $out.d
 
 rule link
   command = g++ $in -o $out $lflags
