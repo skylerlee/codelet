@@ -3,11 +3,11 @@ cflags = -std=c++11 -I./
 lflags = -pthread
 
 rule cxx
-  command = g++ -MMD -MF $out.d $cflags -c $in -o $out
+  command = clang++ -MMD -MF $out.d $cflags -c $in -o $out
   depfile = $out.d
 
 rule link
-  command = g++ $in -o $out $lflags
+  command = clang++ $in -o $out $lflags
 
 build $builddir/gtest.o: cxx gtest/gtest-all.cc
 build $builddir/main.o: cxx main.cc
