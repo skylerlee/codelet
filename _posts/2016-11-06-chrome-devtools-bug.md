@@ -4,9 +4,8 @@ title: Chrome DevTools Bug
 date: 2016-11-06 21:12:45 +0800
 tags:
   - note
-  - coding
-  - frontend
   - debug
+  - frontend
 ---
 
 今天发现了Chrome DevTools的一个bug，这个bug会导致DevTools卡死，造成Sources标签无法响应，
