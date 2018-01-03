@@ -36,15 +36,11 @@ public:
     }
     int i = 0;
     int j = length - 1;
-    while (digits[i] == digits[j] && i <= j) {
+    while (i <= j && digits[i] == digits[j]) {
       i++;
       j--;
     }
-    if (i > j) {
-      return true;
-    } else {
-      return false;
-    }
+    return i > j;
   }
 };
 ```
