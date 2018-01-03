@@ -13,6 +13,11 @@ Question
 
 > Determine whether an integer is a palindrome. Do this without extra space.
 
+今天又看到了这个问题，有下面几点需要注意，再回顾一下吧
+1. 不准使用额外空间
+2. 针对负数的处理
+3. 整数的溢出问题
+
 Solution
 --------
 
