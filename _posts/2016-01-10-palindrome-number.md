@@ -46,3 +46,30 @@ public:
 ```
 
 上面的代码虽然通过了OJ，但使用了`int[10]`的栈空间，还是不符合题目的要求
+
+```cpp
+class Solution {
+public:
+  bool isPalindrome(int x) {
+    if (x < 0) {
+      return false;
+    }
+    long long r = 0; // reversed
+    int n = x;
+    while (n > 0) {
+      r = r * 10 + (n % 10);
+      n = n / 10;
+    }
+    while (x > 0) {
+      if (x % 10 != r % 10) {
+        return false;
+      }
+      x = x / 10;
+      r = r / 10;
+    }
+    return true;
+  }
+};
+```
+
+这种做法就是通过计算`r = r * 10 + d`，将数位反转过来，同时使用`long long`避免上溢出
