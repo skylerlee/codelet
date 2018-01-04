@@ -72,4 +72,14 @@ public:
 };
 ```
 
-这种做法就是通过计算`r = r * 10 + d`，将数位反转过来，同时使用`long long`避免上溢出
+这种做法就是通过计算`r = r * 10 + d`，将数位反转过来，同时使用`long long`避免上溢出，可是
+有没有更完美的解法呢？
+
+```cpp
+class Solution {
+public:
+  bool isPalindrome(int x) {
+    return true;
+  }
+};
+```
