@@ -72,13 +72,37 @@ public:
 };
 ```
 
-这种做法就是通过计算`r = r * 10 + d`，将数位反转过来，同时使用`long long`避免上溢出，可是
-有没有更完美的解法呢？
+这种做法就是通过计算`r = r * 10 + d`，将数位反转过来，同时使用`long long`类型来避免上溢出，
+可是有没有更好的解法呢？
+
+其实这种进制相关的问题都有一个难点，就在于模运算每次只能取得个位，而不好取得最高位。我们只要能够
+做到在循环内同时访问最高位和最低位，那么就可以进行回文判断了。而要做到这一点，首先就要取得数字的
+最高位数，具体可以通过1不断自乘10来得到数量级，然后最高位就可以通过除法得到，最后数字本身取模，
+进入下一次迭代，代码如下：
 
 ```cpp
 class Solution {
 public:
   bool isPalindrome(int x) {
+    if (x < 0) {
+      return false;
+    }
+    int n = 1; // highest digit
+    while (x / 10 >= n) {
+      n = n * 10;
+    }
+    int y = x;
+    int l, h; // lower higher digit
+    while (y > 0) {
+      l = x % 10;
+      h = y / n;
+      if (l != h) {
+        return false;
+      }
+      x = x / 10;
+      y = y % n;
+      n = n / 10;
+    }
     return true;
   }
 };
