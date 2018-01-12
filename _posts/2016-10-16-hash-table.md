@@ -66,6 +66,15 @@ size_t HashTable::hash(const string& key) const {
 键值的冲突是不可避免的，因此哈希表需要通过一定的方式来解决冲突，下面介绍最常见的两种方法，分别是
 分离链接法(Separate Chaining)和开放定址法(Open Addressing)
 
+#### terminology
+以上两种方法还有一种有趣的命名方式：其中"separate chaining"方法又可称作"open hashing"方法
+或者"closed addressing"方法，而"open addressing"方法又可称作"closed hashing"方法，这种
+命名实际上是根据同义词的存储位置来做区分的："hashing"是指哈希表内部的桶数组，而"addressing"
+是指的桶的地址或下标；"open hashing"指同义词可以存储于内部数组之外，即链表的存储方式，而此时
+同义词都储存在同一个桶中，即桶的下标是固定的，因此也可以称作"closed addressing"；与此相反，
+"open addressing"方法将所有的同义词都储存在内部数组之中，因此又称作"closed hashing"，个人
+感觉这种命名方式比较ambiguous，只做了解即可
+
 参考资料：  
 [1] [Mark A. Weiss Data Structures and Algorithm Analysis in C++-4th - Hashing](https://www.pearson.com/us/higher-education/program/Weiss-Data-Structures-and-Algorithm-Analysis-in-C-4th-Edition/PGM148299.html)  
 [2] [R. Sedgewick and K. Wayne Algorithms-4th - Hash Tables](https://algs4.cs.princeton.edu/34hash/)  
