@@ -17,6 +17,8 @@ build $builddir/main.o: cxx main.cc
 build $builddir/target: link $builddir/gtest.o $
                           $builddir/main.o
 
+build build: phony $builddir/target
+
 build all: exec $builddir/target
 
 default all
