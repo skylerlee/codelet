@@ -15,7 +15,7 @@ rule exec
 build $builddir/gtest.o: cxx gtest/gtest-all.cc
 build $builddir/main.o: cxx main.cc
 build $builddir/target: link $builddir/gtest.o $
-                          $builddir/main.o
+                             $builddir/main.o
 
 build build: phony $builddir/target
 
