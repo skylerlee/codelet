@@ -9,16 +9,11 @@ rule cxx
 rule link
   command = clang++ $in -o $out $lflags
 
-rule exec
-  command = $builddir/target --gtest_color=yes
-
 build $builddir/gtest.o: cxx gtest/gtest-all.cc
 build $builddir/main.o: cxx main.cc
 build $builddir/target: link $builddir/gtest.o $
                              $builddir/main.o
 
-build build: phony $builddir/target
-
-build all: exec $builddir/target
+build all: phony $builddir/target
 
 default all
