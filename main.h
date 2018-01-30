@@ -2,8 +2,7 @@
 #include "gtest/gtest.h"
 // Header for debug
 #include "prettyprint/prettyprint.h"
-
-#define LOG(s) std::cout << s << std::endl
+#include "logger/logger.h"
 
 #define MAIN \
 int main(int argc, char **argv) { \
