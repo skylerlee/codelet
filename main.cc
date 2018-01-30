@@ -1,5 +1,6 @@
 #include "main.h"
 // -----------------------------------------------------------------------------
+clogger::Logger d;
 
 class Solution {
 public:
