@@ -27,7 +27,7 @@ gulp.task('build-css', () =>
 );
 
 gulp.task('build-js', (cb) =>
-  pump([
+  pump(
     rollup({
       input: './src/script/enfield.js',
       format: 'iife',
@@ -37,7 +37,8 @@ gulp.task('build-js', (cb) =>
     rename('enfield.min.js'),
     uglify(),
     gulp.dest('./assets/js'),
-  ], cb)
+    cb
+  )
 );
 
 exports.default = gulp.parallel(['build-css', 'build-js']);
