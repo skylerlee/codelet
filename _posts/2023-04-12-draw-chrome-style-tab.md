@@ -164,3 +164,12 @@ class ChromeTab {
 const shape = new ChromeTabBar();
 shape.draw(ctx);
 ```
+
+Demo:
+
+<p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="eYPZmZz" data-user="skylerlee" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/skylerlee/pen/eYPZmZz">
+  ChromeTab</a> by Skyler (<a href="https://codepen.io/skylerlee">@skylerlee</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
