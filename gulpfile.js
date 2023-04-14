@@ -15,12 +15,7 @@ gulp.task('build-css', () =>
   .pipe(rename('enfield.min.css'))
   .pipe(postcss([
     atImport(),
-    autoprefixer({
-      browsers: [
-        '> 0.1%',
-        'not ie <= 8',
-      ]
-    }),
+    autoprefixer(),
     cssnano(),
   ]))
   .pipe(gulp.dest('./assets/css'))
