@@ -247,6 +247,11 @@ tbody tr:nth-child(odd) {
     max-width: 42rem;
   }
 }
+@media (min-width: 1200px) {
+  .container {
+    max-width: 60rem;
+  }
+}
 
 
 /*
