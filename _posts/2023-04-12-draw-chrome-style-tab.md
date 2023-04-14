@@ -82,4 +82,85 @@ SkPath GM2TabStyle::GetPath(PathType path_type,
 ```js
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+
+class ChromeTabBar {
+  x = 0;
+  y = 0;
+  width = 400;
+  height = 50;
+  extensionHeight = 10;
+  tabs = [];
+  backgroundColor = '#3388ff';
+
+  constructor() {
+    this.tabs.push(new ChromeTab(this));
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = this.backgroundColor;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+    this.tabs.forEach((tab) => { tab.draw(ctx); });
+  }
+}
+
+class ChromeTab {
+  tabWidth = 200;
+  tabHeight = 40;
+  offsetX = 0;
+  radius = 10;
+  parent = null;
+  backgroundColor = '#eeeeee';
+
+  constructor(parent) {
+    this.parent = parent;
+  }
+
+  draw(ctx) {
+    const x0 = this.parent.x + this.offsetX + this.radius;
+    const y0 = this.parent.y;
+    const x1 = x0 + this.tabWidth;
+    const y1 = y0 + this.tabHeight;
+    const path = new Path2D();
+    // Start from bottom-left
+    path.moveTo(this.parent.x, y1 + this.parent.extensionHeight);
+    // Draw the left edge of the extension
+    //   ╭─────────╮
+    //   │ Content │
+    // ┏─╯         ╰─┐
+    path.lineTo(this.parent.x, y1);
+    // Draw the bottom-left corner
+    //   ╭─────────╮
+    //   │ Content │
+    // ┌━╝         ╰─┐
+    path.lineTo(x0 - this.radius, y1);
+    path.arcTo(x0, y1, x0, y1 - this.radius, this.radius);
+    // Draw the ascender and top-left curve
+    //   ┎─────────╮
+    //   ┃ Content │
+    // ┌─╯         ╰─┐
+    path.lineTo(x0, y0 + this.radius);
+    path.arcTo(x0, y0, x0 + this.radius, y0, this.radius);
+    // Draw the top crossbar and top-right curve
+    //   ╭━━━━━━━━━╗
+    //   │ Content │
+    // ┌─╯         ╰─┐
+    path.lineTo(x1 - this.radius, y0);
+    path.arcTo(x1, y0, x1, y0 + this.radius, this.radius);
+    // Draw the descender and bottom-right corner
+    //   ╭─────────╮
+    //   │ Content ┃
+    // ┌─╯         ╚━┐
+    path.lineTo(x1, y1 - this.radius);
+    path.arcTo(x1, y1, x1 + this.radius, y1, this.radius);
+    path.lineTo(this.parent.x + this.parent.width, y1);
+    // Draw anything remaining: the descender, the bottom right horizontal stroke
+    path.lineTo(this.parent.x + this.parent.width, y1 + this.parent.extensionHeight);
+    path.closePath();
+    ctx.fillStyle = this.backgroundColor;
+    ctx.fill(path);
+  }
+}
+
+const shape = new ChromeTabBar();
+shape.draw(ctx);
 ```
